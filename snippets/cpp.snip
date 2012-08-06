@@ -11,20 +11,23 @@ abbr        template<>
     template<class ${0:T}>
 
 delete      inc
+delete      include
 snippet     inc
-alias       #inc,#include
+alias       include,#inc,#include
 prev_word   '^'
 abbr        #include <>
     #include <${1}>${0}
 
 snippet     inc_boost
 alias       #inc_boost,#include_boost
+prev_word   '^'
 abbr        #include <boost/.hpp>
     #include <boost/${1}.hpp>${0}
 
 delete      inc2
 snippet     inc2
-alias       #inc2,#include2
+alias       include2,#inc2,#include2
+prev_word   '^'
 abbr        #include ".hpp"
     #include "${1}.hpp"${0}
 
