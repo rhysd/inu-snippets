@@ -1,1 +1,7 @@
-delete      augroupsnippet     augroupabbr        augroup    augroup ${1}        autocmd!        autocmd ${0}    augroup END
+delete      augroup
+snippet     augroup
+abbr        augroup ... augroup END
+    augroup ${1}
+        autocmd!
+        autocmd ${0}
+    augroup END
