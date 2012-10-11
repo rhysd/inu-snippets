@@ -5,3 +5,15 @@ abbr        augroup ... augroup END
         autocmd!
         autocmd ${0}
     augroup END
+
+delete      cpo_save
+snippet     cpo_save
+prev_word   '^'
+abbr        use 
+    let s:save_cpo = &cpo
+    set cpo&vim
+    ${0}
+
+    let &cpo = s:save_cpo
+    unlet s:save_cpo
+
