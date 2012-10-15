@@ -147,7 +147,7 @@ prev_word   '^'
 snippet     constexpr_func
 abbr        constexpr auto func() -> decltype
 prev_word   '^'
-    constexpr auto ${1:name}( ${2:args} ) -> decltype($1)
+    constexpr auto ${1:name}( ${2:args} ) -> decltype($3)
     {
-        return ${1:body};
+        return ${3:body};
     }
