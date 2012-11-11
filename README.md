@@ -1,1 +1,1 @@
-My snippets for neocomplecache-snippet.
+My snippets for [neosnippet](https://github.com/Shougo/neosnippet)
