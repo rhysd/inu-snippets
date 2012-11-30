@@ -4,13 +4,18 @@ abbr		<<-
 	${0}
 	$1
 
+delete	block
+snippet	block
+abbr	{|var| }
+	{|${1:#:var}| ${0}}
+
 # this does not work
 #
-# snippet		main           
+# snippet		main
 # abbr		if __FILE__ == $0 
-# 	#                      
-# 	# main                 
-# 	#                      
-# 	if __FILE__ == $0      
-# 		${1}                  
+# 	#
+# 	# main
+# 	#
+# 	if __FILE__ == $0
+# 		${1}
 # 	end # if __FILE__ = $0 
