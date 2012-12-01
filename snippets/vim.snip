@@ -9,11 +9,15 @@ abbr		augroup ... augroup END
 delete		cpo_save
 snippet		cpo_save
 prev_word	'^'
-abbr		use 
+abbr		use cpo save
 	let s:save_cpo = &cpo
 	set cpo&vim
 	${0}
-
+	
 	let &cpo = s:save_cpo
 	unlet s:save_cpo
 
+snippet		NeoBundle
+alias		neobundle
+abbr		NeoBundle ''
+	NeoBundle '`getreg('+')=='' ? '<\`0\`>' : getreg('+')`'${0}
