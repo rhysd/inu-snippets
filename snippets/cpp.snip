@@ -21,8 +21,8 @@ abbr		#include <>
 snippet		inc_boost
 alias		#inc_boost,#include_boost
 prev_word	'^'
-abbr		#include <boost/.hpp>
-	#include <boost/${1}.hpp>${0}
+abbr		#include <boost/...>
+	#include <boost/${1}>${0}
 
 delete		inc2
 snippet		inc2
