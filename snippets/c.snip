@@ -22,3 +22,8 @@ abbr	#if !defined HOGE #define HOGE #endif
 	#define `toupper( substitute( expand("%"), "[^a-zA-Z0-9]", "_", "g" ) )."_INCLUDED"`
 	${0}
 	#endif // `toupper( substitute( expand("%"), "[^a-zA-Z0-9]", "_", "g" ) )."_INCLUDED"`
+
+delete  inc
+snippet inc
+alias   #inc, #include
+	#include <${1:stdio.h}>${0}
