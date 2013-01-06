@@ -1,0 +1,62 @@
+snippet comment
+alias   memo
+abbr    @comment
+	@comment{com
+		memo = "${0}"
+	}
+
+snippet article
+abbr    @Article
+	@Article{${0},
+		author =    {${1}},
+		title =     {${2}},
+		journal =   {${3}},
+		year =      {${4}},
+		key =       {},
+		volume =    {},
+		number =    {},
+		pages =     {},
+		month =     {},
+		note =      {},
+		annote =    {}
+	}
+
+snippet book
+abbr    @Book
+	@Book{${0},
+		author =    {${1}},
+		title =     {${2}},
+		publisher = {${3}},
+		year =      {${4}},
+		key =       {},
+		volume =    {},
+		number =    {},
+		series =    {},
+		address =   {},
+		edition =   {},
+		month =     {},
+		note =      {},
+		annote =    {}
+	}
+
+snippet proceedings
+abbr    @InProceedings
+	@InProceedings{${3},
+		author =    {${1}},
+		title =     {${2}},
+		crossref =  {},
+		key =       {},
+		booktitle = {},
+		year =      {},
+		editor =    {},
+		volume =    {},
+		number =    {},
+		series =    {},
+		pages =     {},
+		month =     {},
+		address =   {},
+		organization = {},
+		publisher = {},
+		note =      {},
+		annote =    {}
+	}
