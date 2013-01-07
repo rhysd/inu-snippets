@@ -9,13 +9,11 @@ snippet	block
 abbr	{|var| }
 	{|${1:#:var}| ${0}}
 
-# this does not work
-#
-# snippet		main
-# abbr		if __FILE__ == $0 
-# 	#
-# 	# main
-# 	#
-# 	if __FILE__ == $0
-# 		${1}
-# 	end # if __FILE__ = $0 
+snippet		main
+abbr		if __FILE__ == $PROGRAM_NAME
+	#
+	# main
+	#
+	if __FILE__ == $PROGRAM_NAME
+		${0}
+	end # if __FILE__ = $PROGRAM_NAME
