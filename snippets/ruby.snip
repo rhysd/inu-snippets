@@ -26,3 +26,8 @@ abbr		if __FILE__ == $PROGRAM_NAME
 	if __FILE__ == $PROGRAM_NAME
 		${0}
 	end # if __FILE__ = $PROGRAM_NAME
+
+snippet		pry
+abbr		require and disable plugin
+	require 'pry'
+	Pry.config.should_load_plugins = false
