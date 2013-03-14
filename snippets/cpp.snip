@@ -70,9 +70,9 @@ delete		namespace
 snippet		namespace
 abbr		namespace {}
 prev_word	'^'
-    namespace ${1:name} {
-    ${0}
-    } // namespace $1
+	namespace ${1:name} {
+	${0}
+	} // namespace $1
 
 snippet		constexpr_func
 abbr		constexpr auto func() -> decltype
@@ -81,3 +81,7 @@ prev_word	'^'
 	{
 		return ${3:body};
 	}
+
+snippet		constref
+alias		const&,conref
+    const& 
