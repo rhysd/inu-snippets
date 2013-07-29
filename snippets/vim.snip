@@ -28,3 +28,10 @@ abbr		NeoBundleLazy '' {}
 	NeoBundleLazy '`getreg('+')=='' ? '<\`0\`>' : getreg('+')`', {
 			\ ${0}
 			\ }
+
+snippet		autoload_function
+alias		afunc
+abbr		auto#load#func()
+	function! `substitute(matchstr(substitute(expand('%:p:r'), '\\', '/', 'g'), '\/autoload\/\zs.*\ze'), '/', '#', 'g')`#${1:func_name}(${2})
+		${0}
+	endfunction
