@@ -33,8 +33,7 @@ abbr		#include ".hpp"
 
 snippet		cout
 abbr		cout << "\n";
-	std::cout << ${1} << '\n';
-	${0}
+	std::cout << ${1} << '\n';${0}
 
 snippet		static_assert
 abbr		static_assert(,"")
@@ -82,6 +81,3 @@ prev_word	'^'
 		return ${3:body};
 	}
 
-snippet		constref
-alias		const&,conref
-    const& 
