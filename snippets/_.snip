@@ -57,3 +57,16 @@ options		head
 snippet		rhysd
 options		word
 	rhysd <lin90162@gmail.com>${0}
+
+snippet		current_path
+options		word
+	`expand('%:p')`
+
+snippet		current_dir
+options		word
+	`expand('%:p:h')`
+
+snippet		current_file
+options		word
+	`expand('%:t')`
+
