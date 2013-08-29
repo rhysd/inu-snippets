@@ -14,20 +14,20 @@ delete		inc
 delete		include
 snippet		inc
 alias		include,#inc,#include
-prev_word	'^'
+options		head
 abbr		#include <>
 	#include <${1}>${0}
 
 snippet		inc_boost
 alias		#inc_boost,#include_boost
-prev_word	'^'
+options		head
 abbr		#include <boost/...>
 	#include <boost/${1}>${0}
 
 delete		inc2
 snippet		inc2
 alias		include2,#inc2,#include2
-prev_word	'^'
+options		head
 abbr		#include ".hpp"
 	#include "${1}.hpp"${0}
 
@@ -68,14 +68,14 @@ abbr		declval()
 delete		namespace
 snippet		namespace
 abbr		namespace {}
-prev_word	'^'
+options		head
 	namespace ${1:name} {
 	${0}
 	} // namespace $1
 
 snippet		constexpr_func
 abbr		constexpr auto func() -> decltype
-prev_word	'^'
+options		head
 	constexpr auto ${1:name}( ${2:args} ) -> decltype($3)
 	{
 		return ${3:body};

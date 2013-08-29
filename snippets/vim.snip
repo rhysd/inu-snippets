@@ -8,7 +8,7 @@ abbr		augroup ... augroup END
 
 delete		cpo_save
 snippet		cpo_save
-prev_word	'^'
+options		head
 abbr		use cpo save
 	let s:save_cpo = &cpo
 	set cpo&vim

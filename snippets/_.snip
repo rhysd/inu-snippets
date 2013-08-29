@@ -1,6 +1,6 @@
 snippet		MIT_License
 abbr		MIT License description
-prev_word	'^'
+options		head
 	Copyright (c) `strftime("%Y")` ${1:name}
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,7 +24,7 @@ prev_word	'^'
 
 snippet		BOOST_License
 abbr		BOOST Software License description
-prev_word	'^'
+options		head
 	Copyright (c) `strftime("%Y")` ${1:name}
 	Distributed under the Boost Software License, Version 1.0.
 	< http://www.boost.org/LICENSE_1_0.txt >
@@ -55,4 +55,5 @@ prev_word	'^'
 	${0}
 
 snippet		rhysd
+options		word
 	rhysd <lin90162@gmail.com>${0}

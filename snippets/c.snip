@@ -1,6 +1,7 @@
 snippet    main
 alias	   int_main
 abbr	   main(){}
+options		head
 	int main()
 	{
 		${0}
@@ -9,6 +10,7 @@ abbr	   main(){}
 
 snippet    main2
 abbr	   main(argc,argv){}
+options		head
 	int main(int const argc, char const* const* argv)
 	{
 		${0}
@@ -26,4 +28,5 @@ abbr	#if !defined HOGE #define HOGE #endif
 delete  inc
 snippet inc
 alias   #inc, #include
+options		head
 	#include <${1:stdio.h}>${0}
