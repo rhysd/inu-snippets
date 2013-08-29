@@ -62,11 +62,11 @@ options		word
 
 snippet		current_path
 options		word
-	`expand('%:p')`
+	`expand('%') == '' ? getcwd() : expand('%:p')`
 
 snippet		current_dir
 options		word
-	`expand('%:p:h')`
+	`expand('%') == '' ? getcwd() : expand('%:p:h')`
 
 snippet		current_file
 options		word
