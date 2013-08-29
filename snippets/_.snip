@@ -54,9 +54,11 @@ options		head
 	DEALINGS IN THE SOFTWARE.
 	${0}
 
-snippet		rhysd
+snippet		signature
+abbr		signature based on git configuration
+alias		git_sign, sign
 options		word
-	rhysd <lin90162@gmail.com>${0}
+	`executable('git') ? substitute(system('git config user.name'), '\n', '', 'g') : "${1}"` <`executable('git') ? substitute(system('git config user.email'), '\n', '', 'g') : "${2}"`>${0}
 
 snippet		current_path
 options		word
