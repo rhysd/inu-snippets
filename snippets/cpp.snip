@@ -35,6 +35,10 @@ snippet		cout
 abbr		cout << "\n";
 	std::cout << ${1} << '\n';${0}
 
+snippet		cerr
+abbr		cerr << "\n";
+	std::cerr << ${1} << '\n';${0}
+
 snippet		static_assert
 abbr		static_assert(,"")
 	static_assert( ${1}, "${2}" );${0}
@@ -45,7 +49,7 @@ abbr		decltype()
 
 snippet		declval
 abbr		declval()
-	declval(${1})${0}
+	declval<${1}>()${0}
 
 # already included in neosnippet
 #
@@ -80,4 +84,14 @@ options		head
 	{
 		return ${3:body};
 	}
+
+snippet		STATIC_ASSERT
+abbr		STATIC_ASSERT((condition))
+options		word
+	STATIC_ASSERT((${1:condition}));${0}
+
+snippet		STATIC_ASSERT_NOT
+abbr		STATIC_ASSERT_NOT((condition))
+options		word
+	STATIC_ASSERT_NOT((${1:condition}));${0}
 
