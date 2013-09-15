@@ -17,11 +17,13 @@ abbr		use cpo save
 	let &cpo = s:save_cpo
 	unlet s:save_cpo
 
+delete		NeoBundle
 snippet		NeoBundle
 alias		neobundle
 abbr		NeoBundle ''
 	NeoBundle '`getreg('+')=='' ? '<\`0\`>' : getreg('+')`'${0}
 
+delete		NeoBundleLazy
 snippet		NeoBundleLazy
 alias		neobundlelazy
 abbr		NeoBundleLazy '' {}
@@ -29,6 +31,7 @@ abbr		NeoBundleLazy '' {}
 			\ ${0}
 			\ }
 
+delete		autoload_function
 snippet		autoload_function
 alias		afunc
 abbr		auto#load#func()
