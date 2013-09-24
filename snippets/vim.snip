@@ -38,3 +38,12 @@ abbr		auto#load#func()
 	function! `substitute(matchstr(substitute(expand('%:p:r'), '\\', '/', 'g'), '\/autoload\/\zs.*\ze'), '/', '#', 'g')`#${1:func_name}(${2})
 		${0}
 	endfunction
+
+snippet		filter
+abbr		filter(copy(), )
+	filter(copy(${1}), ${0})
+
+snippet		map
+abbr		map(copy(), )
+	map(copy(${1}), ${0})
+
