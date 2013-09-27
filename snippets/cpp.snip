@@ -99,3 +99,7 @@ snippet		using_template_alias
 abbr		template<> using
 	template<${1:params}>
 	using ${2:name} = ${0:body};
+
+snippet		typename_type
+abbr		typename <>::type
+	typename ${1}<${0}>::type
