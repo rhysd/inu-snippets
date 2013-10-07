@@ -71,4 +71,12 @@ abbr		map(copy(), )
 # 	${0}
 # 	let &$1 = $1_save
 
+snippet		if_oneline
+abbr		if | | endif
+options		word
+	if ${1} | ${2} | endif${0}
 
+snippet		if_else_oneline
+abbr		if | | else | | endif
+options		word
+	if ${1} | ${2} | else | ${3} | endif${0}
