@@ -82,3 +82,13 @@ abbr		if exists(...) finish
 	${0}
 	
 	let g:loaded_`substitute(expand('%:t:r'), '\W', '_', 'g')` = 1
+
+snippet		if_oneline
+abbr		if | | endif
+options		word
+	if ${1} | ${2} | endif${0}
+
+snippet		if_else_oneline
+abbr		if | | else | | endif
+options		word
+	if ${1} | ${2} | else | ${3} | endif${0}

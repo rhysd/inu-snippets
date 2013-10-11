@@ -31,6 +31,20 @@ options		head
 abbr		#include ".hpp"
 	#include "${1}.hpp"${0}
 
+delete		inc_h
+snippet		inc_h
+alias		include_h,#inc_h,#include_h
+options		head
+abbr		#include <.h>
+	#include <${1}.h>${0}
+
+delete		inc_h2
+snippet		inc_h2
+alias		include_h2,#inc_h2,#include_h2
+options		head
+abbr		#include ".h"
+	#include "${1}.h"${0}
+
 snippet		cout
 abbr		cout << "\n";
 	std::cout << ${1} << '\n';${0}
@@ -99,3 +113,7 @@ snippet		using_template_alias
 abbr		template<> using
 	template<${1:params}>
 	using ${2:name} = ${0:body};
+
+snippet		typename_type
+abbr		typename <>::type
+	typename ${1}<${0}>::type
