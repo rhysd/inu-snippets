@@ -71,4 +71,14 @@ abbr		map(copy(), )
 # 	${0}
 # 	let &$1 = $1_save
 
-
+delete		loaded
+snippet		loaded
+options		head
+abbr		if exists(...) finish
+	if exists('g:loaded_`substitute(expand('%:t:r'), '\W', '_', 'g')`')
+		finish
+	endif
+	
+	${0}
+	
+	let g:loaded_`substitute(expand('%:t:r'), '\W', '_', 'g')` = 1
