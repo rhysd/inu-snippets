@@ -1,3 +1,29 @@
+snippet		describe_before_after_it
+options		head
+abbr		describe '' end
+	describe '${1}'
+		before
+			${2}
+		end
+	
+		after
+			${3}
+		end
+	
+		it '${4}'
+			${0}
+		end
+	end
+
+snippet		describe_it
+options		head
+abbr		describe '' end
+	describe '${1}'
+		it '${2}'
+			${0}
+		end
+	end
+
 snippet		describe
 options		head
 abbr		describe '' end
