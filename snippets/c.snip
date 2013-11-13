@@ -17,7 +17,8 @@ options		head
 		return 0;
 	}
 
-snippet include_guard
+delete	once
+snippet	include_guard
 alias	inc_guard
 abbr	#if !defined HOGE #define HOGE #endif
 	#if !defined `toupper( substitute( expand("%"), "[^a-zA-Z0-9]", "_", "g" ) )."_INCLUDED"`
