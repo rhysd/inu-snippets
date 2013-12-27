@@ -15,5 +15,13 @@ abbr		[...](https://github.com/rhysd/...)
 	[${1:#:repository}](https://github.com/rhysd/$1)${0}
 
 snippet		twitter_user_link
+abbr		[@...](https://twitter.com/...)
 	[@${1:#:name}](https://twitter.com/$1)${0}
 
+snippet		image_link
+abbr		![]()
+	![${1}](${2})${0}
+
+snippet		image_link_paste
+abbr		![](...)
+	![${1}](`getreg('+')=='' ? '<\`2\`>' : getreg('+')`)${0}
