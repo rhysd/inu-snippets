@@ -87,35 +87,50 @@ delete		namespace
 snippet		namespace
 abbr		namespace {}
 options		head
-	namespace ${1:name} {
+	namespace ${1:#:name} {
 	${0}
 	} // namespace $1
 
 snippet		constexpr_func
 abbr		constexpr auto func() -> decltype
 options		head
-	constexpr auto ${1:name}( ${2:args} ) -> decltype($3)
+	constexpr auto ${1:#:name}(${2:#:args}) -> decltype($3)
 	{
-		return ${3:body};
+		return ${3:#:body};
 	}
 
 snippet		STATIC_ASSERT
 abbr		STATIC_ASSERT((condition))
 options		word
-	STATIC_ASSERT((${1:condition}));${0}
+	STATIC_ASSERT((${1:#:condition}));${0}
 
 snippet		STATIC_ASSERT_NOT
 abbr		STATIC_ASSERT_NOT((condition))
 options		word
-	STATIC_ASSERT_NOT((${1:condition}));${0}
+	STATIC_ASSERT_NOT((${1:#:condition}));${0}
 
 snippet		using_template_alias
 abbr		template<> using
-	template<${1:params}>
-	using ${2:name} = ${0:body};
+	template<${1:#:params}>
+	using ${2:#:name} = ${0:#:body};
 
 snippet		typename_type
 abbr		typename <>::type
 	typename ${1}<${0}>::type
 
+delete		class
+snippet		class
+abbr		class{};
+	class ${1:#:name} {
+		${2}
+	};
+
+snippet		for_range
+abbr		for(auto const& : ){}
+	for (auto const& ${1:i} : ${2:#:container}) {
+		${0}
+	}
+
+delete		for_CPP11_const_auto
+delete		p
 delete		helloworld
