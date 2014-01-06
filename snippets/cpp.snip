@@ -131,6 +131,16 @@ abbr		for(auto const& : ){}
 		${0}
 	}
 
+snippet		static_assert_type
+abbr		static_assert(...<...>::value, "...");
+options		word
+	static_assert(std::is_${1:same}<${2:#:types}>::value, "${3} is not $1");
+
+snippet		static_assert_type_not
+abbr		static_assert(...<...>::value, "...");
+options		word
+	static_assert(!std::is_${1:same}<${2:#:types}>::value, "${3} is $1");
+
 delete		for_CPP11_const_auto
 delete		p
 delete		helloworld
