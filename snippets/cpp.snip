@@ -147,7 +147,7 @@ abbr		for(auto i = std::begin(...); ...)
 
 snippet		lambda_return
 abbr		[](){ return ; }
-	[${1:#:capture}](${2:#:args}){ return ${3:#:body}; }${0}
+	[${1:#:capture}](${2:auto const& x}){ return ${3:#:body}; }${0}
 
 delete		lambda
 snippet		lambda
