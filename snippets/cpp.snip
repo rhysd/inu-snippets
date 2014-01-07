@@ -1,7 +1,7 @@
 delete		for
 snippet		for
 abbr		for(;;) {}
-	for(${1}; ${2}; ${3}) {
+	for (${1}; ${2}; ${3}) {
 		${0}
 	}
 
@@ -47,11 +47,21 @@ abbr		#include ".h"
 
 snippet		cout
 abbr		cout << "\n";
-	std::cout << ${1} << '\n';${0}
+	std::cout << ${1} << ${2:'\n'};
 
 snippet		cerr
 abbr		cerr << "\n";
-	std::cerr << ${1} << '\n';${0}
+	std::cerr << ${1} << ${2:'\n'};
+
+delete		printf
+snippet		printf
+abbr		std::printf("...", ...)
+alias		std::printf
+	std::printf("${1:\n}", ${2});
+
+snippet		print
+abbr		std::printf("...")
+	std::print("${1}");
 
 snippet		static_assert
 abbr		static_assert(,"")
@@ -65,24 +75,6 @@ snippet		declval
 abbr		declval()
 	declval<${1}>()${0}
 
-# already included in neosnippet
-#
-# snippet		static_cast
-# abbr		static_cast<>()
-# 	static_cast<${1}>(${2})${0}
-# 
-# snippet		reinterpret_cast
-# abbr		reinterpret_cast<>()
-# 	reinterpret_cast<${1}>(${2})${0}
-# 
-# snippet		const_cast
-# abbr		const_cast<>()
-# 	const_cast<${1}>(${2})${0}
-# 
-# snippet		dynamic_cast
-# abbr		dynamic_cast<>()
-# 	dynamic_cast<${1}>(${2})${0}
-# 
 delete		namespace
 snippet		namespace
 abbr		namespace {}
@@ -140,6 +132,18 @@ snippet		static_assert_type_not
 abbr		static_assert(...<...>::value, "...");
 options		word
 	static_assert(!std::is_${1:same}<${2:#:types}>::value, "${3} is $1");
+
+snippet		begin_end
+abbr		std::begin(...), std::end(...)
+alias		std::begin_end
+options		word
+	std::begin(${1:#:container}), std::end($1)${0}
+
+snippet		for_iterator
+abbr		for(auto i = std::begin(...); ...)
+	for (auto itr = std::begin(${1:#:container}); itr != std::end($1); ++itr) {
+		${0}
+	}
 
 delete		for_CPP11_const_auto
 delete		p
