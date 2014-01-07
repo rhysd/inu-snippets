@@ -1,6 +1,6 @@
-snippet    main
-alias	   int_main
-abbr	   main(){}
+snippet		main
+alias		int_main
+abbr		main(){}
 options		head
 	int main()
 	{
@@ -8,8 +8,9 @@ options		head
 		return 0;
 	}
 
-snippet    main2
-abbr	   main(argc,argv){}
+snippet		main2
+alias		int_main2
+abbr		main(argc,argv){}
 options		head
 	int main(int const argc, char const* const* argv)
 	{
@@ -17,19 +18,19 @@ options		head
 		return 0;
 	}
 
-delete	once
-snippet	include_guard
-alias	inc_guard
-abbr	#if !defined HOGE #define HOGE #endif
+delete		once
+snippet		include_guard
+alias		inc_guard
+abbr		#if !defined HOGE #define HOGE #endif
 	#if !defined `toupper( substitute( expand("%"), "[^a-zA-Z0-9]", "_", "g" ) )."_INCLUDED"`
 	#define      `toupper( substitute( expand("%"), "[^a-zA-Z0-9]", "_", "g" ) )."_INCLUDED"`
 	${0}
 	#endif    // `toupper( substitute( expand("%"), "[^a-zA-Z0-9]", "_", "g" ) )."_INCLUDED"`
 
-delete  inc
-snippet inc
-alias   #inc, #include
+delete		inc
+snippet		inc
+alias		#inc, #include
 options		head
 	#include <${1:stdio.h}>${0}
 
-delete	helloworld
+delete		helloworld

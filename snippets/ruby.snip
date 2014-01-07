@@ -4,16 +4,16 @@ abbr		<<-
 	${0}
 	$1
 
-delete	block
-delete	blockvar
-snippet	block
-abbr	{|var| }
+delete		block
+delete		blockvar
+snippet		block
+abbr		{|var| }
 	{|${1:#:var}| ${0}}
 
-delete	dovar
-delete	do
-snippet do
-abbr	do || end
+delete		dovar
+delete		do
+snippet		do
+abbr		do || end
 	do |${1:#var}|
 		${0}
 	end
