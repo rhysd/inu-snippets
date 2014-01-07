@@ -53,27 +53,32 @@ abbr		message("...")
 options		head
 	message("${1}")
 
-snippet		status_message
+delete		status_message
+snippet		message_status
 abbr		message(STATUS "...")
 options		head
 	message(STATUS "${1}")
 
-snippet		warning_message
+delete		warning_message
+snippet		message_warning
 abbr		message(WARNING "...")
 options		head
 	message(WARNING "${1}")
 
-snippet		author_warning_message
+delete		author_warning_message
+snippet		message_author_warning
 abbr		message(AUTHOR_WARNING "...")
 options		head
 	message(AUTHOR_WARNING "${1}")
 
-snippet		send_error_message
+delete		send_error_message
+snippet		message_send_error
 abbr		message(SEND_ERROR "...")
 options		head
 	message(SEND_ERROR "${1}")
 
-snippet		fatal_error_message
+delete		fatal_error_message
+snippet		message_fatal_error
 abbr		message(FATAL_ERROR "...")
 options		head
 	message(FATAL_ERROR "${1}")
