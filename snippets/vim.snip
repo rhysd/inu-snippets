@@ -12,6 +12,7 @@ options		head
 abbr		use cpo save
 	let s:save_cpo = &cpo
 	set cpo&vim
+	
 	${0}
 	
 	let &cpo = s:save_cpo
@@ -21,14 +22,23 @@ delete		NeoBundle
 snippet		NeoBundle
 alias		neobundle
 abbr		NeoBundle ''
-	NeoBundle '`getreg('+')=='' ? '<\`0\`>' : getreg('+')`'${0}
+	NeoBundle '`getreg('+')=='' ? '<\`1\`>' : getreg('+')`'${0}
 
 delete		NeoBundleLazy
 snippet		NeoBundleLazy
 alias		neobundlelazy
 abbr		NeoBundleLazy '' {}
-	NeoBundleLazy '`getreg('+')=='' ? '<\`0\`>' : getreg('+')`', {
+	NeoBundleLazy '`getreg('+')=='' ? '<\`1\`>' : getreg('+')`', {
 			\ ${0}
+			\ }
+
+snippet		NeoBundleLazy_autoload
+alias		neobundlelazy_autoload
+abbr		NeoBundleLazy '' {'autoload' : }
+	NeoBundleLazy '`getreg('+')=='' ? '<\`1\`>' : getreg('+')`', {
+			\ 'autoload' : {
+			\     ${0}
+			\   }
 			\ }
 
 delete		autoload_function
