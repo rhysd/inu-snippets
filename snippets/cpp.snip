@@ -123,6 +123,11 @@ abbr		for(auto const& : ){}
 		${0}
 	}
 
+snippet		for_range_copy
+auto		for(auto : ){}
+	for (auto ${1:i} : ${2:#:container}) {
+		${0}
+	}
 snippet		static_assert_type
 abbr		static_assert(...<...>::value, "...");
 options		word
@@ -156,6 +161,7 @@ abbr		[](){}
 		${0}
 	}
 
+delete		for_CPP11
 delete		for_CPP11_const_auto
 delete		p
 delete		helloworld
