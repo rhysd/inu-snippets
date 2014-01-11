@@ -181,6 +181,12 @@ abbr		extern "C" {}
 	
 	} // extern "C"
 
+snippet		accumulate
+abbr		accumulate()
+	accumulate(${1:#:range}, [${2:#:capture}](auto const& acc, auto const& ${3:x}){
+			 ${0}
+		})
+
 delete		for_CPP11
 delete		for_CPP11_const_auto
 delete		p
