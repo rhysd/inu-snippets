@@ -47,17 +47,17 @@ abbr		#include ".h"
 
 snippet		cout
 abbr		cout << "\n";
-	std::cout << ${1} << ${2:'\n'};
+	std::cout << ${1} << ${2:'\\n'};
 
 snippet		cerr
 abbr		cerr << "\n";
-	std::cerr << ${1} << ${2:'\n'};
+	std::cerr << ${1} << ${2:'\\n'};
 
 delete		printf
 snippet		printf
 abbr		std::printf("...", ...)
 alias		std::printf
-	std::printf("${1:\n}", ${2});
+	std::printf("${1:\\n}", ${2});
 
 snippet		print
 abbr		std::printf("...")
