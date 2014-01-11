@@ -161,6 +161,26 @@ abbr		[](){}
 		${0}
 	}
 
+snippet		extern_C
+abbr		extern "C" {}
+	#ifdef __cplusplus
+	extern "C" {
+	#endif
+	
+	${0}
+	
+	#ifdef __cplusplus
+	} // extern "C"
+	#endif
+
+snippet		extern_C_simple
+abbr		extern "C" {}
+	extern "C" {
+	
+	${0}
+	
+	} // extern "C"
+
 delete		for_CPP11
 delete		for_CPP11_const_auto
 delete		p
