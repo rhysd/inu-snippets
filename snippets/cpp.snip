@@ -187,6 +187,13 @@ abbr		accumulate()
 			 ${0}
 		})
 
+delete		enum_scoped
+snippet		enum_scoped
+abbr		enum struct {}
+	enum struct ${1:#:name} {
+		${0:#:item} = 0,
+	};
+
 delete		for_CPP11
 delete		for_CPP11_const_auto
 delete		p
