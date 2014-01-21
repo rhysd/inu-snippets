@@ -47,17 +47,17 @@ abbr		#include ".h"
 
 snippet		cout
 abbr		cout << "\n";
-	std::cout << ${1} << ${2:'\n'};
+	std::cout << ${1} << ${2:'\\n'};
 
 snippet		cerr
 abbr		cerr << "\n";
-	std::cerr << ${1} << ${2:'\n'};
+	std::cerr << ${1} << ${2:'\\n'};
 
 delete		printf
 snippet		printf
 abbr		std::printf("...", ...)
 alias		std::printf
-	std::printf("${1:\n}", ${2});
+	std::printf("${1:\\n}", ${2});
 
 snippet		print
 abbr		std::printf("...")
@@ -124,7 +124,7 @@ abbr		for(auto const& : ){}
 	}
 
 snippet		for_range_copy
-auto		for(auto : ){}
+abbr		for(auto : ){}
 	for (auto ${1:i} : ${2:#:container}) {
 		${0}
 	}
@@ -160,6 +160,39 @@ abbr		[](){}
 	[${1:#:capture}](${2:#:args})${3:#:return_type}{
 		${0}
 	}
+
+snippet		extern_C
+abbr		extern "C" {}
+	#ifdef __cplusplus
+	extern "C" {
+	#endif
+	
+	${0}
+	
+	#ifdef __cplusplus
+	} // extern "C"
+	#endif
+
+snippet		extern_C_simple
+abbr		extern "C" {}
+	extern "C" {
+	
+	${0}
+	
+	} // extern "C"
+
+snippet		accumulate
+abbr		accumulate()
+	accumulate(${1:#:range}, [${2:#:capture}](auto const& acc, auto const& ${3:x}){
+			 ${0}
+		})
+
+delete		enum_scoped
+snippet		enum_scoped
+abbr		enum struct {}
+	enum struct ${1:#:name} {
+		${0:#:item} = 0,
+	};
 
 delete		for_CPP11
 delete		for_CPP11_const_auto
