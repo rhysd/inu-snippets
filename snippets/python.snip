@@ -7,3 +7,46 @@ snippet		from_import_as
 abbr		from ... import ... as ...
 options		head
 	from ${1} import ${2} as ${3}
+
+delete		class
+snippet		class
+abbr		class Class(...): ...
+options		head
+	class ${1:#:name}:
+		${0}
+
+snippet		class_inherit
+abbr		class Class(...): ...
+options		head
+	class ${1:#:name}(${2:#:object}):
+		${0}
+
+delete		classd
+snippet		class_description
+abbr		class Class(...): "..."
+options		head
+	class ${1:#:name}(${2:#:object}):
+		"""${3:#:class documentation}"""
+		def __init__(self, ${4}):
+			${0}
+
+delete		defd
+delete		defm
+snippet		def_method
+abbr		def method(self, ...): ...
+options		head
+	def ${1:#:name}(self, ${2}):
+		${0:TARGET}
+
+delete		defmd
+snippet		def_method_desctiption
+abbr		def method(self, ...): "..."
+options		head
+	def ${1:#:name}(self, ${2}):
+		"""${3:#:method documentation}"""
+		${0:TARGET}
+
+snippet		list_comprehension
+abbr		[x for x in {list}]
+	[${1:#:expr} for ${2:#:args} in ${3:#:list}]
+
