@@ -48,5 +48,43 @@ options		head
 
 snippet		list_comprehension
 abbr		[x for x in {list}]
+alias		map
 	[${1:#:expr} for ${2:#:args} in ${3:#:list}]
+
+snippet		list_comprehension_if
+abbr		[x for x in {list}]
+alias		map
+	[${1:#:expr} for ${2:#:args} in ${3:#:list} if ${3:#:condition}]
+
+snippet		if_oneline
+abbr		... if ... else ...
+	${1:#:value_true} if ${2:#:condition} else ${3:#:value_false}
+
+snippet		for_else
+abbr		for ... else ...
+options		head
+	for ${1:#:iterator} in ${2:#:iterable}:
+		${0:#:target}
+	else:
+		${3:#:finally}
+
+snippet		while_else
+abbr		while ... else ...
+options		head
+	while ${1:#:condition}:
+		${0:#:body}
+	else:
+		${2:#:finally}
+
+snippet		loop
+abbr		while True: ...
+options		head
+	while True:
+		${0:#:body}
+
+delete		with
+snippet		with
+abbr		with ... as ...:
+	with ${1} as ${2}:
+		${0}
 
