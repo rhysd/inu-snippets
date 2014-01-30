@@ -75,7 +75,6 @@ snippet		declval
 abbr		declval()
 	declval<${1}>()${0}
 
-delete		namespace
 snippet		namespace
 abbr		namespace {}
 options		head
@@ -115,6 +114,8 @@ snippet		class
 abbr		class{};
 	class ${1:#:name} {
 		${2}
+	public:
+		${0}
 	};
 
 snippet		for_range
@@ -138,6 +139,10 @@ abbr		static_assert(...<...>::value, "...");
 options		word
 	static_assert(!std::is_${1:same}<${2:#:types}>::value, "${3} is $1");
 
+snippet		static_assert
+abbr		static_assert(,"")
+	static_assert( ${1}, "$1" );${0}
+
 snippet		begin_end
 abbr		std::begin(...), std::end(...)
 alias		std::begin_end
@@ -150,7 +155,6 @@ abbr		for(auto i = std::begin(...); ...)
 		${0}
 	}
 
-delete		lambda
 snippet		lambda
 abbr		[](){ return ; }
 	[${1:#:capture}](${2:auto const& x}){ return ${3:#:body}; }${0}
@@ -187,14 +191,34 @@ abbr		accumulate()
 			 ${0}
 		})
 
-delete		enum_scoped
 snippet		enum_scoped
 abbr		enum struct {}
 	enum struct ${1:#:name} {
 		${0:#:item} = 0,
 	};
 
-delete		for_CPP11
-delete		for_CPP11_const_auto
-delete		p
-delete		helloworld
+snippet		try
+abbr		try catch
+	try {
+		${1:TARGET}
+	} catch (${2:e:xception}) {
+		${3}
+	}
+
+snippet		static_cast
+abbr		static_cast<>()
+	static_cast<${1:#:to}>(${2})${0}
+
+snippet		reinterpret_cast
+abbr		reinterpret_cast<>()
+	reinterpret_cast<${1:#:to}>(${2})${0}
+
+snippet		const_cast
+abbr		const_cast<>()
+	const_cast<${1:#:to}>(${2})${0}
+
+snippet		dynamic_cast
+abbr		dynamic_cast<>()
+	dynamic_cast<${1:#:to}>(${2})${0}
+
+
