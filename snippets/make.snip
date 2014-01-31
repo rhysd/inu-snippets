@@ -1,0 +1,10 @@
+snippet		if
+abbr		ifeq ...
+options		head
+	ifeq (${1:#:lhs},${2:#:rhs})
+		${0:#:body}
+	endif
+
+snippet		shell
+abbr		$(shell ...)
+	$(shell ${1:#:command})
