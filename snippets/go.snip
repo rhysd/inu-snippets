@@ -1,1 +1,17 @@
 delete		helloworld
+delete		package
+
+delete		func
+snippet		func
+abbr		func (){}
+options		head
+	func ${1:#:name}(${2:#:args}) ${3:#:return_type} {
+		${0:#:BODY}
+	}
+
+snippet		main
+abbr		func main(){}
+options		head
+	func main() {
+		${0:#:BODY}
+	}
