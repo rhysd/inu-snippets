@@ -15,3 +15,24 @@ options		head
 	func main() {
 		${0:#:BODY}
 	}
+
+snippet		for_range
+abbr		for _, v := range ...
+options		head
+	for _,${1:v} := range ${2:#:array} {
+		${0:#:BODY}
+	}
+
+snippet		for_index_range
+abbr		for i, v := range ...
+options		head
+	for ${1:i},${2:v} := range ${3:#:array} {
+		${0:#:BODY}
+	}
+
+snippet		for
+abbr		for ;; {}
+options		head
+	for ${1};${2};${3} {
+		${0:#:BODY}
+	}
