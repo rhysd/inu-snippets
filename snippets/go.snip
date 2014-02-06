@@ -9,6 +9,12 @@ options		head
 		${0:#:BODY}
 	}
 
+snippet		method
+abbr		func (*) ...(){}
+	func (${1:#:receiver} *${2:#:receiver_type}) ${3:#:name}(${4:#:args}) ${5:#:return_type} {
+		${0:#:BODY}
+	}
+
 snippet		main
 abbr		func main(){}
 options		head
