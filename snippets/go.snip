@@ -50,3 +50,16 @@ options		head
 	for ${1};${2};${3} {
 		${0:#:BODY}
 	}
+
+snippet		struct
+abbr		type ... struct
+	type ${1:#:name} struct {
+		${0:#:fields}
+	}
+
+snippet		interface
+abbr		type ... interface
+	type ${1:#:name} interface {
+		${0:#:requirements}
+	}
+
