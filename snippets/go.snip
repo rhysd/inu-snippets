@@ -5,7 +5,7 @@ delete		func
 snippet		func
 abbr		func (){}
 options		head
-	func ${1:#:name}(${2:#:args}) ${3:#:return_type} {
+	func ${1:#:name}(${2:#:args}) ${3}{
 		${0:#:BODY}
 	}
 
@@ -63,3 +63,17 @@ abbr		type ... interface
 		${0:#:requirements}
 	}
 
+
+snippet		switch
+abbr		switch {case ...: ...}
+	switch ${1:#:target}{
+	case ${2:#:case1}:
+		${0}
+	}
+
+snippet		select
+abbr		select {case ...: ...}
+	select {
+	case ${1:#:case1}:
+		${0}
+	}
