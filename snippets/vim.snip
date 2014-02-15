@@ -85,7 +85,7 @@ delete		loaded
 snippet		loaded
 options		head
 abbr		if exists(...) finish
-	if exists('g:loaded_`substitute(expand('%:t:r'), '\W', '_', 'g')`')
+	if (exists('g:loaded_`substitute(expand('%:t:r'), '\W', '_', 'g')`') && g:loaded_`substitute(expand('%:t:r'), '\W', '_', 'g')`) || &cp
 		finish
 	endif
 	
