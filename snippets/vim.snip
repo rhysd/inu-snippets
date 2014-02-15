@@ -107,3 +107,9 @@ snippet		prettyprint
 abbr		echomsg PrettyPrint(...)
 	echomsg PrettyPrint(${1})${0}
 
+
+snippet     autoload_variable
+abbr        autoload variable name
+alias       avar
+options     word
+    `substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:var_name}
