@@ -11,7 +11,7 @@ options		head
 
 snippet		method
 abbr		func (*) ...(){}
-	func (${1:#:receiver} *${2:#:receiver_type}) ${3:#:name}(${4:#:args}) ${5:#:return_type} {
+	func (${1:self} *${2:#:receiver_type}) ${3:#:name}(${4:#:args}) ${5:#:return_type}{
 		${0:#:BODY}
 	}
 
