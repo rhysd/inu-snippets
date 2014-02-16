@@ -11,6 +11,7 @@ options		head
 
 snippet		method
 abbr		func (*) ...(){}
+alias		func_method
 	func (${1:self} *${2:#:receiver_type}) ${3:#:name}(${4:#:args}) ${5:#:return_type}{
 		${0:#:BODY}
 	}
