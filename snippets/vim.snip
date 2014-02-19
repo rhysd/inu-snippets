@@ -107,8 +107,8 @@ snippet		prettyprint
 abbr		echomsg PrettyPrint(...)
 	echomsg PrettyPrint(${1})${0}
 
-snippet     let_global_autoload_var
-abbr        global autoload variable
-alias       let_g:var
-options     head
-    let g:`substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:var_name} = get(g:, '`substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#$1', ${2:#:init})
+snippet		let_global_autoload_var
+abbr		global autoload variable
+alias		let_g:var
+options		head
+	let g:`substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:var_name} = get(g:, '`substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#$1', ${2:#:init})
