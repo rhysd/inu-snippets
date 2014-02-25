@@ -54,16 +54,17 @@ options		head
 
 snippet		struct
 abbr		type ... struct
+alias		type_struct
 	type ${1:#:name} struct {
 		${0:#:fields}
 	}
 
 snippet		interface
 abbr		type ... interface
+alias		type_interface
 	type ${1:#:name} interface {
 		${0:#:requirements}
 	}
-
 
 snippet		switch
 abbr		switch {case ...: ...}
