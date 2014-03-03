@@ -3,3 +3,8 @@ abbr		main
 options		head
 	main :: IO ()
 	main = ${0}
+
+snippet		language_extension
+abbr		{-# LANGUAGE ... #-}
+options		head
+	{-# LANGUAGE ${0:#:extension} #-}
