@@ -187,6 +187,13 @@ abbr		extern "C" {}
 	
 	} // extern "C"
 
+snippet		def_undef
+alias		#def_undef
+abbr		#define ... #undef
+	#define ${1:#:name}${2:#:args} ${3:#:BODY}
+	${0}
+	#undef $1
+
 snippet		accumulate
 abbr		accumulate()
 	accumulate(${1:#:range}, [${2:#:capture}](auto const& acc, auto const& ${3:x}){
