@@ -1,0 +1,73 @@
+snippet		func
+abbr		func() end
+	func ${1:#:name}${2:#:param}
+		${0}
+	end
+
+snippet		proc
+abbr		proc() end
+	proc ${1:#:name}${2:#:param}
+		${0}
+	end
+
+snippet		func_begin
+abbr		func() end
+	func ${1:#:name}${2:#:param}
+		${3:#:precond}
+	begin
+		${0}
+	end
+
+snippet		proc_begin
+abbr		proc() end
+	proc ${1:#:name}${2:#:param}
+		${3:#:precond}
+	begin
+		${0}
+	end
+
+snippet		case
+abbr		case ... end
+	case ${1:#:var}
+	when ${2:#:cond}
+		${3:#:body}
+	else
+		${4:#:else}
+	end
+
+snippet		when
+abbr		when ...
+	when ${1:#:cond}
+		${2:#:body}
+
+snippet		if
+abbr		if ... end
+	if ${1:#:cond}
+		${0:#:body}
+	end
+
+snippet		else
+abbr		else ...
+	else
+		${0:#:body}
+
+snippet		elseif
+abbr		elseif ...
+	elseif ${1:#:cond}
+		${0:#:body}
+
+snippet		if_expr
+abbr		if then else
+	if ${1:#:cond} then ${2:#:expr} else ${3:#:expr}
+
+snippet		for
+abbr		for ... end
+	for ${1:#:range}
+		${0:#:body}
+	end
+
+snippet		main
+abbr		func main end
+	func main
+		${0:#:start}
+	end
