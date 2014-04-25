@@ -230,7 +230,11 @@ snippet		dynamic_cast
 abbr		dynamic_cast<>()
 	dynamic_cast<${1:#:to}>(${2})${0}
 
-snippet     raw_string
-abbr        R"()"
-    R"(${1})"${0}
+snippet		raw_string
+abbr		R"()"
+	R"(${1})"${0}
+
+snippet		noexcept_noexcept
+abbr		noexcept(noexcept())
+	noexcept(noexcept(${0:#:expr}))
 
