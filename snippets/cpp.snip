@@ -238,3 +238,14 @@ snippet		noexcept_noexcept
 abbr		noexcept(noexcept())
 	noexcept(noexcept(${0:#:expr}))
 
+snippet		main_iostream
+alias		int_main_iostream
+options		head
+abbr		#include <iostream> main(){}
+	#include <iostream>
+	${1:#include <vector>}
+	
+	int main()
+	{
+		${0}
+	}
