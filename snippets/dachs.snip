@@ -18,12 +18,32 @@ abbr		func() end
 		${0}
 	end
 
+snippet		func_begin_ensure
+abbr		func() end
+	func ${1:#:name}${2:#:param}
+		${3:#:precond}
+	begin
+		${0}
+	ensure
+		${4}
+	end
+
 snippet		proc_begin
 abbr		proc() end
 	proc ${1:#:name}${2:#:param}
 		${3:#:precond}
 	begin
 		${0}
+	end
+
+snippet		proc_begin_ensure
+abbr		proc() end
+	proc ${1:#:name}${2:#:param}
+		${3:#:precond}
+	begin
+		${0}
+	ensure
+		${4}
 	end
 
 snippet		case
@@ -69,5 +89,11 @@ abbr		for ... end
 snippet		main
 abbr		func main end
 	func main
+		${0:#:start}
+	end
+
+snippet		main_args
+abbr		func main end
+	func main(args)
 		${0:#:start}
 	end
