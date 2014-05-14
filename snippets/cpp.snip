@@ -249,3 +249,9 @@ abbr		#include <iostream> main(){}
 	{
 		${0}
 	}
+
+snippet		forward
+options		word
+abbr		forward<decltype()>()
+	std::forward<decltype(${1:#:var})>($1)${0}
+
