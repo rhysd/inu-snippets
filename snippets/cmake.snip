@@ -14,39 +14,39 @@ options		head
 snippet		if
 abbr		if() endif()
 options		head
-	if(${1:#:condition})
+	if (${1:#:condition})
 		${0}
-	endif()
+	endif ()
 
 snippet		if_else
 abbr		if() else() endif()
 options		head
-	if(${1:#:condition})
+	if (${1:#:condition})
 		${2}
-	else()
+	else ()
 		${3}
-	endif()
+	endif ()
 
 snippet		foreach
 abbr		foreach() endforeach()
 options		head
-	foreach(${1:item} ${2:items})
+	foreach (${1:item} ${2:items})
 		${3}
-	endforeach($1)
+	endforeach ($1)
 
 snippet		macro
 abbr		macro() endmacro()
 options		head
-	macro(${1:name} ${2:args})
+	macro (${1:name} ${2:args})
 		${3}
-	endmacro($1)
+	endmacro ($1)
 
 snippet		function
 abbr		function() endfunction()
 options		head
-	function(${1:name} ${2:args})
+	function (${1:name} ${2:args})
 		${3}
-	endfunction($1)
+	endfunction ($1)
 
 snippet		message
 abbr		message("...")
@@ -86,9 +86,9 @@ options		head
 snippet		while
 abbr		while() endwhile()
 options		head
-	while(${1:#:condition})
+	while (${1:#:condition})
 		${2}
-	endwhile()
+	endwhile ()
 
 snippet		file_GLOBE_RECURSE
 abbr		file(GLOB_RECURSE ...)
