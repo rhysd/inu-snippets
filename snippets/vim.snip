@@ -128,3 +128,22 @@ snippet		echohl
 abbr		echohl | ... | echohl None
 options		head
 	echohl ${1:ErrorMsg} | ${2:echomsg} ${0:#:msg} | echohl None
+
+delete		redir
+snippet		redir_var
+abbr		redir =>
+	redir => ${1:#:var}
+		${0}
+	redir END
+
+snippet		redir_file
+abbr		redir >
+	redir! > ${1:#:file}
+		${0}
+	redir END
+
+snippet		redir_register
+abbr		redir @
+	redir @${1:#:register}
+		${0}
+	redir END
