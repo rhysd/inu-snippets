@@ -123,3 +123,8 @@ snippet		let_var
 abbr		let ... = get(...)
 options		head
 	let ${1:#:scope}:${2:#:name} = get($1:, '$2', ${3:#:default})
+
+snippet		echohl
+abbr		echohl | ... | echohl None
+options		head
+	echohl ${1:ErrorMsg} | ${2:echomsg} ${0:#:msg} | echohl None
