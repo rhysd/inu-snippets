@@ -255,3 +255,8 @@ options		word
 abbr		forward<decltype()>()
 	std::forward<decltype(${1:#:var})>($1)${0}
 
+snippet		endl
+options		word
+abbr		<< std::endl
+	${1:std::cout} << std::endl;${0}
+
