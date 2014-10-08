@@ -82,9 +82,21 @@ abbr		if then else
 
 snippet		for
 abbr		for ... end
-	for ${1:#:range}
+	for ${1}
 		${0:#:body}
 	end
+
+snippet		do_block
+abbr		do || ... end
+	do |${1:#:args}|
+		${0:#:body}
+	end
+
+snippet		let_in
+abbr		let ... in
+	let
+		${1:#:inits}
+	in ${0:#:statement}
 
 snippet		main
 abbr		func main end
