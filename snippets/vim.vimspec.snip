@@ -1,0 +1,69 @@
+snippet		describe
+alias		Describe
+options		head
+abbr		Describe ... End
+	Describe ${1:#:spec}
+		${0:#:body}
+	End
+
+snippet		before
+alias		Before
+options		head
+abbr		Before ... End
+	Before ${1:all}
+		${0:#:body}
+	End
+
+snippet		after
+alias		After
+options		head
+abbr		After ... End
+	After ${1:all}
+		${0:#:body}
+	End
+
+snippet		it
+alias		It
+options		head
+abbr		It ... End
+	It ${1:#:does}
+		${0:#:body}
+	End
+
+snippet		context
+alias		Context
+options		head
+abbr		Context ... End
+	Context ${1:#:description}
+		${0:#:body}
+	End
+
+snippet		assert
+alias		Assert
+options		word
+abbr		Assert ...
+	Assert ${1:Equals}(${2:#:cond})
+	${0}
+
+snippet		throws
+alias		Throws
+options		word
+abbr		Throws ...
+	Throws /${1:#:pattern}/ ${2:#:expr_or_command}
+	${0}
+
+snippet		equals
+alias		assert_equals
+options		word
+abbr		Assert Equals
+	Assert Equals(${1:#:lhs}, ${2:#:rhs})
+	${0}
+
+snippet		not_equals
+alias		assert_not_equals
+options		word
+abbr		Assert NotEquals
+	Assert NotEquals(${1:#:lhs}, ${2:#:rhs})
+	${0}
+
+
