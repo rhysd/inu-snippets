@@ -92,6 +92,16 @@ abbr		do || ... end
 		${0:#:body}
 	end
 
+snippet		lambda_in
+abbr		-> ... in
+	-> ${1:#:args} in ${0:#:expr}
+
+snippet		lambda_do
+abbr		-> ... do
+	-> ${1:#:args} do
+		${0:#:body}
+	end
+
 snippet		let_in
 abbr		let ... in
 	let
