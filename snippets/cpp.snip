@@ -48,12 +48,17 @@ abbr		#include ".h"
 	#include "${1}.h"${0}
 
 snippet		cout
-abbr		cout << "\n";
-	std::cout << ${1} << ${2:'\\n'};${0}
+abbr		cout << ...;
+	std::cout << ${1};${0}
 
 snippet		cerr
-abbr		cerr << "\n";
-	std::cerr << ${1} << ${2:'\\n'};
+abbr		cerr << ...;
+	std::cerr << ${1};${0}
+
+snippet		cout_endl
+abbr		cout << ... << endl;
+	std::${1:cout} << ${1} << std::endl;
+	${0}
 
 delete		printf
 snippet		printf
