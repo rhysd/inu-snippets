@@ -120,22 +120,15 @@ delete		class
 snippet		class
 abbr		class{};
 	class ${1:#:name} {
-		${2}
-	public:
 		${0}
 	};
 
 snippet		for_range
 abbr		for(auto const& : ){}
-	for (auto const& ${1:i} : ${2:#:container}) {
+	for (${1:auto &&} ${2:#:item} : ${3:#:container}) {
 		${0}
 	}
 
-snippet		for_range_copy
-abbr		for(auto : ){}
-	for (auto ${1:i} : ${2:#:container}) {
-		${0}
-	}
 snippet		static_assert_type
 abbr		static_assert(...<...>::value, "...");
 options		word
