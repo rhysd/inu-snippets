@@ -258,3 +258,9 @@ options		word
 abbr		<< std::endl
 	${1:std::cout} << std::endl;${0}
 
+snippet		optional
+options		head
+abbr		auto maybe = ...
+	auto ${1:const} maybe_${2:#:var_name} = ${3:#:initializer};
+	assert(maybe_$2);
+	auto $1& $2 = *maybe_$2;
