@@ -119,3 +119,14 @@ abbr		func main end
 	func main(args)
 		${0:#:start}
 	end
+
+snippet         class
+abbr            class...end
+        class ${1:#:name}
+            ${0:#:body}
+        end
+
+snippet         init
+abbr            init...end
+        init${0:#:args}
+        end
