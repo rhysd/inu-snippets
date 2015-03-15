@@ -106,7 +106,15 @@ snippet		let_in
 abbr		let ... in
 	let
 		${1:#:inits}
-	in ${0:#:statement}
+	in ${0:#:expression}
+
+snippet		let_begin
+abbr		let ... begin ... end
+	let
+		${1:#:inits}
+	begin
+		${0:#:statements}
+	end
 
 snippet		main
 abbr		func main end
@@ -120,13 +128,14 @@ abbr		func main end
 		${0:#:start}
 	end
 
-snippet         class
-abbr            class...end
-        class ${1:#:name}
-            ${0:#:body}
-        end
+snippet		class
+abbr		class...end
+	class ${1:#:name}
+		${0:#:body}
+	end
 
-snippet         init
-abbr            init...end
-        init${0:#:args}
-        end
+snippet		init
+abbr		init...end
+	init${1:#:args}
+			${0:#:body}
+	end
