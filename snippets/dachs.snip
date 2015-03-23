@@ -1,52 +1,19 @@
 snippet		func
+options		head
 abbr		func() end
 	func ${1:#:name}${2:#:param}
 		${0}
 	end
 
 snippet		proc
+options		head
 abbr		proc() end
 	proc ${1:#:name}${2:#:param}
 		${0}
-	end
-
-snippet		func_begin
-abbr		func() end
-	func ${1:#:name}${2:#:param}
-		${3:#:precond}
-	begin
-		${0}
-	end
-
-snippet		func_begin_ensure
-abbr		func() end
-	func ${1:#:name}${2:#:param}
-		${3:#:precond}
-	begin
-		${0}
-	ensure
-		${4}
-	end
-
-snippet		proc_begin
-abbr		proc() end
-	proc ${1:#:name}${2:#:param}
-		${3:#:precond}
-	begin
-		${0}
-	end
-
-snippet		proc_begin_ensure
-abbr		proc() end
-	proc ${1:#:name}${2:#:param}
-		${3:#:precond}
-	begin
-		${0}
-	ensure
-		${4}
 	end
 
 snippet		case
+options		head
 abbr		case ... end
 	case ${1:#:var}
 	when ${2:#:cond}
@@ -56,11 +23,13 @@ abbr		case ... end
 	end
 
 snippet		when
+options		head
 abbr		when ...
 	when ${1:#:cond}
 		${2:#:body}
 
 snippet		if
+options		head
 abbr		if ... end
 	if ${1:#:cond}
 		${0:#:body}
@@ -81,6 +50,7 @@ abbr		if then else
 	if ${1:#:cond} then ${2:#:expr} else ${3:#:expr}
 
 snippet		for
+options		head
 abbr		for ... end
 	for ${1}
 		${0:#:body}
@@ -117,24 +87,28 @@ abbr		let ... begin ... end
 	end
 
 snippet		main
+options		head
 abbr		func main end
 	func main
 		${0:#:start}
 	end
 
 snippet		main_args
+options		head
 abbr		func main end
 	func main(args)
 		${0:#:start}
 	end
 
 snippet		class
+options		head
 abbr		class...end
 	class ${1:#:name}
 		${0:#:body}
 	end
 
 snippet		init
+options		head
 abbr		init...end
 	init${1:#:args}
 			${0:#:body}
