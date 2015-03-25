@@ -57,7 +57,12 @@ abbr		cerr << ...;
 
 snippet		cout_endl
 abbr		cout << ... << endl;
-	std::${1:cout} << ${1} << std::endl;
+	std::cout << ${1} << std::endl;
+	${0}
+
+snippet		cerr_endl
+abbr		cerr << ... << endl;
+	std::cerr << ${1} << std::endl;
 	${0}
 
 delete		printf
