@@ -1,17 +1,5 @@
 include c.snip
 
-delete		for
-snippet		for
-abbr		for(;;) {}
-	for (${1}; ${2}; ${3}) {
-		${0}
-	}
-
-delete		template
-snippet		template
-abbr		template<>
-	template<class ${0:T}>
-
 delete		inc
 delete		include
 snippet		inc
@@ -65,23 +53,9 @@ abbr		cerr << ... << endl;
 	std::cerr << ${1} << std::endl;
 	${0}
 
-delete		printf
-snippet		printf
-abbr		std::printf("...", ...)
-alias		std::printf
-	std::printf("${1:\\n}", ${2});
-
-snippet		print
-abbr		std::printf("...")
-	std::print("${1}");
-
 snippet		static_assert_msg
 abbr		static_assert(,"")
 	static_assert( ${1}, "${2}" );${0}
-
-snippet		decltype
-abbr		decltype()
-	decltype(${1})${0}
 
 snippet		declval
 abbr		declval()
@@ -93,14 +67,6 @@ options		head
 	namespace ${1:#:name} {
 	${0}
 	} // namespace $1
-
-snippet		constexpr_func
-abbr		constexpr auto func() -> decltype
-options		head
-	constexpr auto ${1:#:name}(${2:#:args}) -> decltype($3)
-	{
-		return ${3:#:body};
-	}
 
 snippet		STATIC_ASSERT
 abbr		STATIC_ASSERT((condition))
@@ -120,13 +86,6 @@ abbr		template<> using
 snippet		typename_type
 abbr		typename <>::type
 	typename ${1}<${0}>::type
-
-delete		class
-snippet		class
-abbr		class{};
-	class ${1:#:name} {
-		${0}
-	};
 
 snippet		for_range
 abbr		for(auto const& : ){}
@@ -153,22 +112,6 @@ abbr		std::begin(...), std::end(...)
 alias		std::begin_end
 options		word
 	std::begin(${1:#:container}), std::end($1)${0}
-
-snippet		for_iterator
-abbr		for(auto i = std::begin(...); ...)
-	for (auto itr = std::begin(${1:#:container}); itr != std::end($1); ++itr) {
-		${0}
-	}
-
-snippet		lambda
-abbr		[](){ return ; }
-	[${1:#:capture}](${2:auto const& x}){ return ${3:#:body}; }${0}
-
-snippet		lambda_long
-abbr		[](){}
-	[${1:#:capture}](${2:#:args})${3:#:return_type}{
-		${0}
-	}
 
 snippet		extern_C
 abbr		extern "C" {}
@@ -197,41 +140,11 @@ abbr		#define ... #undef
 	${0}
 	#undef $1
 
-snippet		accumulate
-abbr		accumulate()
-	accumulate(${1:#:range}, [${2:#:capture}](auto const& acc, auto const& ${3:x}){
-			 ${0}
-		})
-
 snippet		enum_scoped
 abbr		enum struct {}
 	enum struct ${1:#:name} {
 		${0:#:item} = 0,
 	};
-
-snippet		try
-abbr		try catch
-	try {
-		${1:TARGET}
-	} catch (${2:e:xception}) {
-		${3}
-	}
-
-snippet		static_cast
-abbr		static_cast<>()
-	static_cast<${1:#:to}>(${2})${0}
-
-snippet		reinterpret_cast
-abbr		reinterpret_cast<>()
-	reinterpret_cast<${1:#:to}>(${2})${0}
-
-snippet		const_cast
-abbr		const_cast<>()
-	const_cast<${1:#:to}>(${2})${0}
-
-snippet		dynamic_cast
-abbr		dynamic_cast<>()
-	dynamic_cast<${1:#:to}>(${2})${0}
 
 snippet		raw_string
 abbr		R"()"
@@ -257,11 +170,6 @@ snippet		forward
 options		word
 abbr		forward<decltype()>()
 	std::forward<decltype(${1:#:var})>($1)${0}
-
-snippet		endl
-options		word
-abbr		<< std::endl
-	${1:std::cout} << std::endl;${0}
 
 snippet		optional
 options		head
