@@ -79,3 +79,17 @@ abbr		select {case ...: ...}
 	case ${1:#:case1}:
 		${0}
 	}
+
+snippet		err_with_check
+abbr		foo, err := ...; if err ...
+	err := ${1:#:expr}
+	if err != nil {
+		${0:#:error_handling}
+	}
+
+snippet		if_err
+abbr		if err := ...; err != nil { ...
+	if err := ${1:#:expr}; err != nil {
+		${0:#:error_handling}
+	}
+
