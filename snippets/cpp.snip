@@ -195,5 +195,5 @@ abbr		T(T const&) = default
 snippet		debug_print
 options		head
 abbr		<< __func__ << ...
-	std::cerr << ${1:#:"foo" <<} __func__ << ":" __LINE__ " (" __FILE__ ")" << std::endl;${0}
+	std::cerr << __func__ << ": " << ${1:#:msg} << " (" __FILE__ ":" << __LINE__ << ')' << std::endl;${0}
 
