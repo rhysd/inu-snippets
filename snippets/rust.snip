@@ -1,0 +1,100 @@
+snippet     main
+abbr        fn main() {}
+options     head
+    fn main() {
+        ${0:#:body}
+    }
+
+snippet     fn
+abbr        fn () {}
+options     head
+    fn ${1:#:name}(${2:#:args}) {
+        ${0:#:body}
+    }
+
+snippet     fn_ret
+abbr        fn () {}
+options     head
+    fn ${1:#:name}(${2:#:args}) -> ${3:#:ret} {
+        ${0:#:body}
+    }
+
+snippet     pubfn
+abbr        pubfn () {}
+options     head
+    pub fn ${1:#:name}(${2:#:args}) -> ${3:#:ret} {
+        ${0:#:body}
+    }
+
+# macros
+
+snippet     println
+abbr        println!
+    println!(${1:"\{\}"}, ${0});
+
+snippet     format
+abbr        format!
+    format!("${1:\{\}}", ${0});
+
+# attributes
+
+snippet     extern_crate
+abbr        extern crate
+options     head
+    extern crate ${0:TARGET};
+
+snippet     crate_name
+options     head
+    #![crate_name=${1:#:crate_name}]
+
+snippet     derive
+options     head
+    #[derive(${1:TARGET})]${2}
+
+# statements
+
+snippet     mod
+options     head
+    mod ${1:#:name} {
+        ${0:#:body}
+    } // mod ${1}
+
+snippet     let
+    let ${1:#:name} = ${2};${3}
+
+snippet     if
+abbr        if {}
+    if ${1:#:condition} {
+        ${0:#:body}
+    }
+
+snippet else
+    else {
+        ${0:#:body}
+    }
+
+snippet elseif
+    } else if (${1:#:condition}) {
+        ${0:#:body}
+    }
+
+snippet     for
+abbr        for in  {}
+    for ${1} in ${2} {
+        ${0:#:body}
+    }
+
+snippet     match
+    match ${1:#:expr} {
+        ${2:#:pattern} => ${3:#:body},${4}
+    }
+
+# data
+
+snippet     opt
+abbr        Option<T>
+    Option<${1:#:type}>${2}
+
+snippet     res
+abbr        Result<T, U>
+    Result<${1:#:T}, ${2:#:U}>${3}
