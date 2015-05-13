@@ -19,13 +19,6 @@ options     head
         ${0:#:body}
     }
 
-snippet     pubfn
-abbr        pubfn () {}
-options     head
-    pub fn ${1:#:name}(${2:#:args}) -> ${3:#:ret} {
-        ${0:#:body}
-    }
-
 # macros
 
 snippet     println
@@ -38,18 +31,13 @@ abbr        format!
 
 # attributes
 
-snippet     extern_crate
-abbr        extern crate
-options     head
-    extern crate ${0:TARGET};
-
 snippet     crate_name
 options     head
-    #![crate_name=${1:#:crate_name}]
+    #![crate_name=${1:#:name}]
 
 snippet     derive
 options     head
-    #[derive(${1:TARGET})]${2}
+    #[derive(${1:#:base})]${2}
 
 # statements
 
@@ -60,7 +48,7 @@ options     head
     } // mod ${1}
 
 snippet     let
-    let ${1:#:name} = ${2};${3}
+    let ${1:#:name} = ${0};
 
 snippet     if
 abbr        if {}
@@ -80,21 +68,12 @@ snippet elseif
 
 snippet     for
 abbr        for in  {}
-    for ${1} in ${2} {
+    for ${1:#:elem} in ${2:#:range} {
         ${0:#:body}
     }
 
 snippet     match
     match ${1:#:expr} {
-        ${2:#:pattern} => ${3:#:body},${4}
+        ${2:#:pattern} => ${0:#:body},
     }
 
-# data
-
-snippet     opt
-abbr        Option<T>
-    Option<${1:#:type}>${2}
-
-snippet     res
-abbr        Result<T, U>
-    Result<${1:#:T}, ${2:#:U}>${3}
