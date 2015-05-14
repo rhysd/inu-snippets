@@ -1,79 +1,77 @@
-snippet     main
-abbr        fn main() {}
-options     head
-    fn main() {
-        ${0:#:body}
-    }
+snippet		main
+abbr		fn main() {}
+options		head
+	fn main() {
+		${0:#:body}
+	}
 
-snippet     fn
-abbr        fn () {}
-options     head
-    fn ${1:#:name}(${2:#:args}) {
-        ${0:#:body}
-    }
+snippet		fn
+abbr		fn () {}
+options		head
+	fn ${1:#:name}(${2:#:args}) {
+		${0:#:body}
+	}
 
-snippet     fn_ret
-abbr        fn () {}
-options     head
-    fn ${1:#:name}(${2:#:args}) -> ${3:#:ret} {
-        ${0:#:body}
-    }
+snippet		fn_ret
+abbr		fn () {}
+options		head
+	fn ${1:#:name}(${2:#:args}) -> ${3:#:ret} {
+		${0:#:body}
+	}
 
 # macros
 
-snippet     println
-abbr        println!
-    println!("${1:\{\}}", ${0});
+snippet		println
+abbr		println!("", )
+	println!("${1:\{\}}", ${0});
 
-snippet     format
-abbr        format!
-    format!("${1:\{\}}", ${0});
+snippet		format
+abbr		format!("", )
+	format!("${1:\{\}}", ${0});
 
-# attributes
+snippet		attr
+abbr		#[]
+options		head
+	#[${1}]
 
-snippet     crate_name
-options     head
-    #![crate_name=${1:#:name}]
+snippet		attr_bang
+abbr		#![]
+options		head
+	#![${1}]
 
-snippet     derive
-options     head
-    #[derive(${1:#:base})]${2}
+snippet		mod
+options		head
+	mod ${1:#:name} {
+		${0:#:body}
+	} // mod ${1}
 
-# statements
+snippet		let
+	let ${1:#:name} = ${0};
 
-snippet     mod
-options     head
-    mod ${1:#:name} {
-        ${0:#:body}
-    } // mod ${1}
-
-snippet     let
-    let ${1:#:name} = ${0};
-
-snippet     if
-abbr        if {}
-    if ${1:#:condition} {
-        ${0:#:body}
-    }
+snippet		if
+abbr		if {}
+	if ${1:#:condition} {
+		${0:#:body}
+	}
 
 snippet else
-    else {
-        ${0:#:body}
-    }
+	else {
+		${0:#:body}
+	}
 
 snippet elseif
-    } else if (${1:#:condition}) {
-        ${0:#:body}
-    }
+	} else if (${1:#:condition}) {
+		${0:#:body}
+	}
 
-snippet     for
-abbr        for in  {}
-    for ${1:#:elem} in ${2:#:range} {
-        ${0:#:body}
-    }
+snippet		for
+abbr		for in	{}
+	for ${1:#:elem} in ${2:#:range} {
+		${0:#:body}
+	}
 
-snippet     match
-    match ${1:#:expr} {
-        ${2:#:pattern} => ${0:#:body},
-    }
+snippet		match
+	match ${1:#:expr} {
+		${2:#:pattern} => ${0:#:body},
+	}
 
