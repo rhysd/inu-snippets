@@ -19,8 +19,6 @@ options		head
 		${0:#:body}
 	}
 
-# macros
-
 snippet		println
 abbr		println!("", )
 	println!("${1:\{\}}", ${0});
@@ -74,4 +72,16 @@ snippet		match
 	match ${1:#:expr} {
 		${2:#:pattern} => ${0:#:body},
 	}
+
+snippet		match_ok_err
+abbr		match {Ok(), Err()}
+	match ${1:#:expr} {
+		Ok(${2}) => ${3:#:body_ok},
+		Err(${4}) => ${5:#:body_err},
+	}
+
+snippet		ok_expect
+abbr		.ok().expect()
+	.ok()
+	.expect(${1})
 
