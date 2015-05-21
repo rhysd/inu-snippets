@@ -45,7 +45,7 @@ delete		autoload_function
 snippet		autoload_function
 alias		afunc
 abbr		auto#load#func()
-	function! `substitute(matchstr(substitute(expand('%:p:r'), '\\', '/', 'g'), '\/autoload\/\zs.*\ze'), '/', '#', 'g')`#${1:func_name}(${2})
+	function! `substitute(matchstr(substitute(expand('%:p:r'), '\\', '/', 'g'), '\/autoload\/\zs.*\ze'), '/', '#', 'g')`#${1:func_name}(${2}) abort
 		${0}
 	endfunction
 
@@ -97,11 +97,6 @@ snippet		if_oneline
 abbr		if | | endif
 options		word
 	if ${1} | ${2} | endif${0}
-
-snippet		if_else_oneline
-abbr		if | | else | | endif
-options		word
-	if ${1} | ${2} | else | ${3} | endif${0}
 
 snippet		prettyprint
 abbr		echomsg PrettyPrint(...)
