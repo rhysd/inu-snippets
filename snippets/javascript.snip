@@ -5,10 +5,14 @@ abbr	funciton (){}
 		${0:#:body}
 	}
 
-snippet log
+snippet console_log
 abbr    console.log();
 options head
-	console.log(${1:#:args});${0}
+	console.log(${0:#:args});
+
+snippet console_log_stringify
+abbr    console.log(JSON.stringify());
+	console.log(JSON.stringify(${0:#:arg}));
 
 snippet	require
 abbr	var = require();
