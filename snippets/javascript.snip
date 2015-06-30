@@ -1,17 +1,19 @@
 snippet	function
 alias	func
 abbr	funciton (){}
+options word
 	function ${1:#:name}(${2:#:params}) {
 		${0:#:body}
 	}
 
 snippet console_log
 abbr    console.log();
-options head
+options word
 	console.log(${0:#:args});
 
 snippet console_log_stringify
 abbr    console.log(JSON.stringify());
+options word
 	console.log(JSON.stringify(${0:#:arg}));
 
 snippet	require
@@ -21,4 +23,5 @@ options head
 
 snippet	require_func
 abbr	var foo = require().foo;
+options head
 	var ${1:#:func} = require('${2:#:module}').$1;
