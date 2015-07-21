@@ -1,0 +1,16 @@
+snippet import_require
+abbr    import = require('');
+options head
+	import ${1} = require('$1');
+
+snippet constructor
+abbr    constructor(){}
+options head
+	constructor(${1:#:params}) {
+		${2:#:body}
+	}
+
+snippet log_stringify
+abbr    console.log(stringify())
+options word
+	console.log(JSON.stringify(${1}, null, 2));
