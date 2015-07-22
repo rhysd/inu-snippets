@@ -18,3 +18,15 @@ options word
 snippet reference
 abbr    /// <reference .../>
 	/// <reference path="${1}" />
+
+snippet function
+abbr    function () {}
+	function ${1:#:name} (${2:#:params}) {
+		${3:#:body}
+	}
+
+snippet function_arrow
+abbr    () => {}
+	(${1:#:params}) => {
+		${2:#:body}
+	}
