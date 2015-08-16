@@ -4,15 +4,11 @@ abbr		[](...)
 
 snippet		github_link
 abbr		[...](https://github.com/...)
-	[${1:#:path}](https://github.com/$1)${0}
+	[${1:#:name}](https://github.com/${2:rhysd}/$1)${0}
 
 snippet		github_link_paste
 abbr		[...](https://github.com/...)
 	[`getreg('+')=='' ? '<\`1\`>' : matchstr(getreg('+'), '^https://github.com/\zs.\+$')` - Github](`getreg('+')=='' ? '<\`2\`>' : getreg('+')`)${0}
-
-snippet		github_rhysd
-abbr		[...](https://github.com/rhysd/...)
-	[${1:#:repository} - Github](https://github.com/rhysd/$1)${0}
 
 snippet		twitter_user_link
 abbr		[@...](https://twitter.com/...)
