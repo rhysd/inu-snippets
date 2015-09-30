@@ -80,16 +80,34 @@ abbr		select {case ...: ...}
 		${0}
 	}
 
-snippet		err_with_check
-abbr		foo, err := ...; if err ...
-	err := ${1:#:expr}
-	if err != nil {
-		${0:#:error_handling}
-	}
-
 snippet		if_err
+options		head
 abbr		if err := ...; err != nil { ...
 	if err := ${1:#:expr}; err != nil {
 		${0:#:error_handling}
 	}
 
+snippet		error_handling_default
+options		head
+abbr		if err != nil {}
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err.Error())
+		${0}
+	}
+
+snippet		test_method
+options		head
+abbr		Test...() {}
+	func Test${1:#Name}(t *testing.T) {
+		${0:#:BODY}
+	}
+
+snippet		test_case
+options		head
+abbr		actual := ; extected := ;
+	actual := ${1:#:ACTUAL}
+	expected := ${2:#:EXPECTED}
+	if actual != expected {
+		t.Errorf("${3:#:ERROR_MSG}")
+	}
+	${0}
