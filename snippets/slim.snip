@@ -1,0 +1,34 @@
+snippet	import
+abbr	link import
+options	head
+	link rel="import" href="${0:#:path}"
+
+snippet	html_main
+abbr	<html></html>
+options	head
+	doctype html
+	html
+		head
+			meta charset="utf-8"
+			meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+			meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes"
+			title ${1:#:title}
+	body
+		${2:#:BODY}
+
+snippet	polymer_elem
+abbr	polymer elem def
+options	head
+	dom-module id="${1:#:name}"
+		style:
+			:host {
+			}
+		template
+			${0:#:BODY}
+		javascript:
+			Polymer({
+				is: '$1',
+				properties: {
+				}
+			});
+
