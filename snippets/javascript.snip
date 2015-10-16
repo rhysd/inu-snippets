@@ -47,18 +47,18 @@ options	head
 		}
 	}
 	
-	${1}.propTypes = {
+	$1.propTypes = {
 	}
 
 snippet	export_default_var
 abbr	export let ...
 options	head
 	export ${1:let} ${2:name} = ${3:expr};
-	export default ${2};
+	export default $2;
 	${0}
 
 snippet	jsx
 abbr	<foo><foo/>
 	<${1:div} ${2:#:props}>
 		${0}
-	</${1}>
+	</$1>
