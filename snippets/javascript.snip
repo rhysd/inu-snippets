@@ -34,23 +34,31 @@ options head
 snippet import
 abbr    import {...}
 options head
-	import {${1:#:names}} from '${2:#:module}';
-
-snippet import_default
-abbr    import default
-options head
-	import ${1:#:name} from '${2:#:module}';
+	import ${1:#:names} from '${2:#:module}';
 
 snippet react_component_def
 abbr	extends React.Component
+options	head
 	export default class ${1:#:name} extends React.Component {
-		constructor(props) {
-			super(props);
-		}
-		
 		render() {
 			return (
 				${0}
 			);
 		}
 	}
+	
+	${1}.propTypes = {
+	}
+
+snippet	export_default_var
+abbr	export let ...
+options	head
+	export ${1:let} ${2:name} = ${3:expr};
+	export default ${2};
+	${0}
+
+snippet	jsx
+abbr	<foo><foo/>
+	<${1:div} ${2:#:props}>
+		${0}
+	</${1}>
