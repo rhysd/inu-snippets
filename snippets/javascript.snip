@@ -16,6 +16,11 @@ abbr    console.log(JSON.stringify());
 options word
 	console.log(JSON.stringify(${0:#:arg}));
 
+snippet	console_dump_var
+abbr	console.log('foo', foo)
+options	word
+	console.log('${1:#:var_name}', $1)${0}
+
 snippet	require
 abbr	var = require();
 options head
