@@ -1,0 +1,41 @@
+snippet	describe
+abbr	describe('', () =>)
+options	head
+	describe('${1:#:feature}', () => {
+		${0:#:body}
+	});
+
+snippet	it
+abbr	it('', () => ...)
+options	head
+	it('${1:#:spec}', () => {
+		${0:#:body}
+	});
+
+snippet	it_done
+abbr	it('', () => ...)
+options	head
+	it('${1:#:spec}', done => {
+		${0:#:body}
+	});
+
+snippet	assert_strictEqual
+abbr	assert.strictEqual()
+options	word
+	assert.strictEqual(${1:#:actual}, ${2:#:expected});
+
+snippet	assert_notStrictEqual
+abbr	assert.notStrictEqual()
+options	word
+	assert.notStrictEqual(${1:#:actual}, ${2:#:expected});
+
+snippet	assert_deepEqual
+abbr	assert.deepEqual()
+options	word
+	assert.deepEqual(${1:#:actual}, ${2:#:expected});
+
+snippet	assert_notDeepEqual
+abbr	assert.notDeepEqual()
+options	word
+	assert.notDeepEqual(${1:#:actual}, ${2:#:expected});
+
