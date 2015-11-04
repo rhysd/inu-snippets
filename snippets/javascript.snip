@@ -67,3 +67,16 @@ abbr	<foo><foo/>
 	<${1:div} ${2:#:props}>
 		${0}
 	</$1>
+
+snippet	foreach
+abbr	for of ...
+	for (const ${1:#:iter} of ${2:#:iterable}) {
+		${0:#:BODY}
+	}
+
+snippet	foreach_keys
+abbr	for in ...
+	for (const ${1:#:key} in ${2:#:iterable}) {
+		${0:#:BODY}
+	}
+
