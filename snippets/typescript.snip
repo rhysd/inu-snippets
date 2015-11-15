@@ -3,20 +3,10 @@ abbr    import = require('');
 options head
 	import ${1} = require('$1');
 
-snippet import_asterisk
-abbr    import * as ... from '...'
-options head
-	import * as ${1:#:name} from '$1';
-
 snippet import
 abbr    import {...} from '...'
 options head
-	import {${1:#:names}} from '${2:#:module}';
-
-snippet import_default
-abbr    import def from '...'
-options head
-	import ${1:#:name} from '${2:#:module}';
+	import ${1:#:modules} from '${2:#:module}';
 
 snippet constructor
 abbr    constructor(){}
