@@ -1,19 +1,19 @@
 snippet	link
 abbr	<link>
 options	head
-	<link rel="${1:stylesheet}" href="{${2:#:path}}" />
+	<link rel="${1:stylesheet}" href="${2:#:path}" />
 
 snippet	html_main
 abbr	<html></html>
 options	head
 	<!DOCTYPE html>
 	<html>
-	  <head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes" />
-		<title>${1:#:title}</title>
-	  </head>
-	  <body>
-		${0:#:body}
-	  </body>
+		<head>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes" />
+			<title>${1:#:title}</title>
+		</head>
+		<body>
+			${0:#:body}
+		</body>
 	</html>
