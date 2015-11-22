@@ -17,3 +17,24 @@ options	head
 			${0:#:body}
 		</body>
 	</html>
+
+snippet	polymer_component
+abbr	<custom-element>
+options	head
+	<link rel="stylesheet" href="${1:./bower_components/polymer/polymer.html}" />
+	
+	<dom-module id="${2:#:name}">
+		<template>
+			<style>
+			</style>
+		</template>
+	</dom-module>
+	
+	<script>
+	(function() {
+		Polymer({
+			is: $2,
+			${0:#:definition}
+		});
+	}());
+	</script>
