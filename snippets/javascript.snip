@@ -87,7 +87,8 @@ options	head
 snippet	case
 abbr	case ...: {...}
 options	head
-	case ${1:#:value}:
+	case ${1:#:value}: {
 		${0:#:BODY}
 		break;
+	}
 
