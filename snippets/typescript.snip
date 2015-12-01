@@ -66,3 +66,11 @@ options	head
 		${0:#:BODY}
 		break;
 	}
+
+snippet	export_function
+abbr	export function(){}
+options	head
+	export function ${1:#:name}() {
+		'use strict';
+		${0:#:BODY}
+	}
