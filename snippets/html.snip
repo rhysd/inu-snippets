@@ -21,9 +21,7 @@ options	head
 snippet	polymer_component
 abbr	<custom-element>
 options	head
-	<link rel="stylesheet" href="${1:./bower_components/polymer/polymer.html}" />
-	
-	<dom-module id="${2:#:name}">
+	<dom-module id="${1:#:name}">
 		<template>
 			<style>
 			</style>
@@ -33,8 +31,11 @@ options	head
 	<script>
 	(function() {
 		Polymer({
-			is: $2,
-			${0:#:definition}
+			is: '$1',
+			
+			properties: {
+				${2:#:name}: ${0:#:prop_def}
+			}
 		});
 	}());
 	</script>
