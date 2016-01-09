@@ -52,3 +52,12 @@ alias	notDeepEqual
 options	word
 	assert.notDeepEqual(${1:#:actual}, ${2:#:expected});
 
+snippet	assert_isTrue
+abbr	assert.isTrue(, '')
+options	word
+	assert.isTrue(${1:#:actual}, '${2:#:msg}');
+
+snippet	assert_isFalse
+abbr	assert.isFalse(, '')
+options	word
+	assert.isFalse(${1:#:actual}, '${2:#:msg}');
