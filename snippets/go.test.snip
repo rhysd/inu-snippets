@@ -1,0 +1,20 @@
+snippet		func_test
+abbr		func TestFoo(t *testing.T){}
+options		head
+	func Test${1:#:SomeThing}(t *testing.T) {
+		${0:#:BODY}
+	}
+
+snippet		assert
+abbr		if { t.Fatalf() }
+options		head
+	if ${1:#:condition} {
+		t.Fatalf(${2:#:msg})
+	}
+
+snippet		func_test_main
+alias		test_main
+abbr		func TestMain()
+	func TestMain(m *testing.M) {
+		${0:#:BODY}
+	}
