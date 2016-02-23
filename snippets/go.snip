@@ -92,19 +92,12 @@ abbr		if err != nil {}
 		${0}
 	}
 
-snippet		test_method
+snippet		open_file
 options		head
-abbr		Test...() {}
-	func Test${1:#Name}(t *testing.T) {
-		${0:#:BODY}
+abbr		os.Open(...)
+	${1:f}, err := os.${2:Open}(${3:#:filename}, ${4:os.ModePerm})
+	if err != nil {
+		${5:panic(err)}
 	}
-
-snippet		test_case
-options		head
-abbr		actual := ; extected := ;
-	actual := ${1:#:ACTUAL}
-	expected := ${2:#:EXPECTED}
-	if actual != expected {
-		t.Errorf("${3:#:ERROR_MSG}")
-	}
+	defer $1.Close()
 	${0}

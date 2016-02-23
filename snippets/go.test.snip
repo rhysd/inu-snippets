@@ -18,3 +18,14 @@ abbr		func TestMain()
 	func TestMain(m *testing.M) {
 		${0:#:BODY}
 	}
+
+snippet		assert_verbose
+options		head
+abbr		actual := ; extected := ;
+	actual := ${1:#:ACTUAL}
+	expected := ${2:#:EXPECTED}
+	if actual != expected {
+		t.Errorf("${3:#:ERROR_MSG}")
+	}
+	${0}
+
