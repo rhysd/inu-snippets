@@ -13,15 +13,16 @@ alias		func_method
 		${0:#:BODY}
 	}
 
-snippet		main
-abbr		func main(){}
-options		head
-	func main() {
+snippet		method_copy
+abbr		func (*) ...(){}
+alias		func_method
+	func (${1:self} ${2:#:receiver_type}) ${3:#:name}(${4:#:args}) ${5:#:return_type}{
 		${0:#:BODY}
 	}
 
-snippet		main_package
+snippet		main
 abbr		package main ... func main...
+alias		main_package
 	package main
 	
 	func main() {
@@ -31,14 +32,7 @@ abbr		package main ... func main...
 snippet		for_range
 abbr		for _, v := range ...
 options		head
-	for _,${1:v} := range ${2:#:array} {
-		${0:#:BODY}
-	}
-
-snippet		for_index_range
-abbr		for i, v := range ...
-options		head
-	for ${1:i},${2:v} := range ${3:#:array} {
+	for ${1:_},${2:v} := range ${3:#:array} {
 		${0:#:BODY}
 	}
 
@@ -77,19 +71,19 @@ abbr		select {case ...: ...}
 		${0}
 	}
 
-snippet		if_err
+snippet		err_eq
+options		head
+abbr		x, err := ...
+	${1:#:var}, err := ${2:#:expr}
+	if err != nil {
+		${3:panic(err)}${0}
+	}
+
+snippet		if_err_eq
 options		head
 abbr		if err := ...; err != nil { ...
 	if err := ${1:#:expr}; err != nil {
-		${0:#:error_handling}
-	}
-
-snippet		error_handling_default
-options		head
-abbr		if err != nil {}
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err.Error())
-		${0}
+		${2:panic(err)}${0}
 	}
 
 snippet		open_file
