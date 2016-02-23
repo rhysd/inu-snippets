@@ -95,3 +95,10 @@ abbr		os.Open(...)
 	}
 	defer $1.Close()
 	${0}
+
+snippet		defer_func
+abbr	defer func(){}()
+options		head
+	defer func() {
+		${0:#:BODY}
+	}()
