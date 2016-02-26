@@ -81,3 +81,10 @@ options	head
 	/**
 	 *  ${0:#:doc}
 	 */
+
+snippet	new_Promise
+alias	Promise
+abbr	new Promise(...)
+	new Promise<${1:#:T}>((resolve, reject) => {
+		${0:#:BODY}
+	});
