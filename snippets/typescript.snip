@@ -88,3 +88,10 @@ abbr	new Promise(...)
 	new Promise<${1:#:T}>((resolve, reject) => {
 		${0:#:BODY}
 	});
+
+snippet	namespace
+abbr	namespace {}
+options head
+	namespace ${1:#:name} {
+		${0:#:BODY}
+	} // $1
