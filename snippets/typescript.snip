@@ -95,3 +95,25 @@ options head
 	namespace ${1:#:name} {
 		${0:#:BODY}
 	} // $1
+
+snippet	reactstateless_component
+abbr	const C = props => ()
+options head
+	interface ${1:#:Component}Props extends React.Props<${2:any}> {
+		${3:#:props}
+	}
+	const $1 = (props: $1Props) => (
+		${0:#:BODY}
+	)
+
+snippet	react_component_class
+abbr	React.Component
+options	head
+	export default class ${1:#:Name} extends React.Component<${2:{\}}, ${3:{\}} {
+		render() {
+			return (
+				${0}
+			);
+		}
+	}
+
