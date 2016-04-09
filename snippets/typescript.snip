@@ -96,15 +96,19 @@ options head
 		${0:#:BODY}
 	} // $1
 
-snippet	reactstateless_component
+snippet	react_stateless_component
 abbr	const C = props => ()
 options head
+	import * as React from 'react';
+	
 	interface ${1:#:Component}Props extends React.Props<${2:any}> {
 		${3:#:props}
 	}
+	
 	const $1 = (props: $1Props) => (
 		${0:#:BODY}
-	)
+	);
+	export default $1;
 
 snippet	react_component_class
 abbr	React.Component
