@@ -101,8 +101,8 @@ abbr	const C = props => ()
 options head
 	import * as React from 'react';
 	
-	interface ${1:#:Component}Props extends React.Props<${2:any}> {
-		${3:#:props}
+	interface ${1:#:Component}Props extends React.Props<any> {
+		${2:#:props}
 	}
 	
 	const $1 = (props: $1Props) => (
@@ -113,7 +113,13 @@ options head
 snippet	react_component_class
 abbr	React.Component
 options	head
-	export default class ${1:#:Name} extends React.Component<${2:{\}}, ${3:{\}} {
+	import * as React from 'react';
+	
+	interface ${1:#:Component}Props extends React.Props<$1> {
+		${2:#:props}
+	}
+	
+	export default class $1 extends React.Component<${$1Props, ${2:{\}}> {
 		render() {
 			return (
 				${0}
