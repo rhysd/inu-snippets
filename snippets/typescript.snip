@@ -105,9 +105,7 @@ options head
 		${2:#:props}
 	}
 	
-	const $1 = (props: $1Props) => (
-		${0:#:BODY}
-	);
+	const $1: React.StatelessComponent<$1Props> = props => ${0:#:BODY};
 	export default $1;
 
 snippet	react_component_class
@@ -122,7 +120,7 @@ options	head
 	export default class $1 extends React.Component<${$1Props, ${2:{\}}> {
 		render() {
 			return (
-				${0}
+				${0:#:ELEMENT}
 			);
 		}
 	}
