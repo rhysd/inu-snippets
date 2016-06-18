@@ -117,7 +117,7 @@ options	head
 		${2:#:props}
 	}
 	
-	export default class $1 extends React.Component<${$1Props, ${2:{\}}> {
+	export default class $1 extends React.Component<$1Props, ${2:{\}}> {
 		render() {
 			return (
 				${0:#:ELEMENT}
@@ -125,3 +125,9 @@ options	head
 		}
 	}
 
+snippet	test_ava
+abbr	test('', t => )
+options	head
+	test('${1:#:description}', t => {
+		${0:#:BODY}
+	});
