@@ -21,52 +21,17 @@ options		head
 
 snippet		println
 abbr		println!("", )
-	println!("${1:\{\}}", ${0});
+	println!("${1}")${0}
 
-snippet		format
-abbr		format!("", )
-	format!("${1:\{\}}", ${0});
-
-snippet		attr
-abbr		#[]
-options		head
-	#[${1}]
-
-snippet		attr_bang
-abbr		#![]
-options		head
-	#![${1}]
+snippet		debug_println
+abbr		println!("", v)
+	println!("DEBUG: ${1:#:var}: {:?}", $1);
 
 snippet		mod
 options		head
 	mod ${1:#:name} {
 		${0:#:body}
 	} // mod ${1}
-
-snippet		let
-	let ${1:#:name} = ${0};
-
-snippet		if
-abbr		if {}
-	if ${1:#:condition} {
-		${0:#:body}
-	}
-
-snippet else
-	else {
-		${0:#:body}
-	}
-
-snippet elseif
-	} else if (${1:#:condition}) {
-		${0:#:body}
-	}
-
-snippet		for
-abbr		for in	{}
-	for ${1:#:elem} in ${2:#:range} {
-		${0:#:body}
-	}
 
 snippet		match
 	match ${1:#:expr} {
@@ -79,9 +44,4 @@ abbr		match {Ok(), Err()}
 		Ok(${2}) => ${3:#:body_ok},
 		Err(${4}) => ${5:#:body_err},
 	}
-
-snippet		ok_expect
-abbr		.ok().expect()
-	.ok()
-	.expect(${1})
 
