@@ -1,10 +1,10 @@
-snippet import_require
-abbr    import = require('');
+snippet import_all
+abbr    import * as from;
 options head
-	import ${1} = require('$1');
+	import * as ${1:#:module} from '$1';
 
 snippet import
-abbr    import {...} from '...'
+abbr    import ... from ''
 options head
 	import ${1:#:modules} from '${2:#:module}';
 
@@ -25,28 +25,15 @@ abbr    /// <reference .../>
 	/// <reference path="${1}" />
 
 snippet function
-abbr    function () {}
-	function ${1:#:name} (${2:#:params}) {
-		${3:#:body}
+abbr    function() {}
+	function ${1:#:name}(${2:#:params}) {
+		${0:#:body}
 	}
 
-snippet function_arrow
-abbr    () => {}
-	(${1:#:params}) => {
-		${2:#:body}
-	}
-
-snippet	for_of
-abbr	for of ...
+snippet	for
+abbr	for(){}
 options	head
-	for (const ${1:#:iter} of ${2:#:iterable}) {
-		${0:#:BODY}
-	}
-
-snippet	for_in
-abbr	for in ...
-options	head
-	for (const ${1:#:key} in ${2:#:iterable}) {
+	for (const ${1:#:iter}) {
 		${0:#:BODY}
 	}
 
@@ -65,14 +52,6 @@ options	head
 	case ${1:#:value}: {
 		${0:#:BODY}
 		break;
-	}
-
-snippet	export_function
-abbr	export function(){}
-options	head
-	export function ${1:#:name}() {
-		'use strict';
-		${0:#:BODY}
 	}
 
 snippet	doc_comment
