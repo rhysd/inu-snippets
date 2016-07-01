@@ -45,18 +45,32 @@ abbr		match {Ok(), Err()}
 		Err(${4}) => ${5:#:body_err},
 	}
 
-snippet		derive_struct
+snippet		derive
 options		head
-abbr		#[derive()] struct()
-	#[derive(${1:Debug})]
-	struct ${2:#:Name}${0:#:{\}}
+abbr		#[derive()]
+	#[derive(${1:Debug})]${0}
 
 snippet		allow_dead_code
 options		head
 abbr		#![allow(dead_code)]
 	#![allow(dead_code)]${0}
 
-
 snippet		if_oneline
 abbr		if {} else {}
 	if ${1:#:cond} { ${2} } else { ${3} }
+
+snippet		impl_method
+options		head
+abbr		struct {} impl {}
+	impl ${1:#:Name} {
+		fn ${2:#:name}(&self${3:#:params})${4:#:ret} {
+			${0:#:BODY}
+		}
+	}
+
+snippet		fn_method
+options		head
+abbr		fn (&self...) {}
+	fn ${1:#:name}(&self${2:#:params})${3:#:ret} {
+		${0:#:BODY}
+	}
