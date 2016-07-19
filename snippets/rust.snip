@@ -74,3 +74,17 @@ abbr		fn (&self...) {}
 	fn ${1:#:name}(&self${2:#:params})${3:#:ret} {
 		${0:#:BODY}
 	}
+
+snippet		test_fn
+options		head
+abbr		test fn ()
+	#[test]
+	fn ${1:#:testcase}() {
+		${0:#:BODY}
+	}
+
+snippet		should_panic
+options		head
+abbr		#[should_panic]
+	#[should_panic(expected = "${1:#:message}")]${0}
+
