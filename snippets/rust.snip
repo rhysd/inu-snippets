@@ -92,5 +92,7 @@ snippet		macro_rules
 options		head
 abbr		macro_rules! {}
 	macro_rules! ${1:#:name} {
-		(${2:#:pattern}) => ${0:#:BODY}
+		(${2:#:pattern}) => {
+			${0:#:BODY}
+		}
 	}
