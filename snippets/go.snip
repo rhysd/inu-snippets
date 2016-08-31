@@ -76,14 +76,21 @@ options		head
 abbr		x, err := ...
 	${1:#:var}, err := ${2:#:expr}
 	if err != nil {
-		${3:panic(err)}${0}
+		${0:panic(err)}
 	}
 
 snippet		if_err_eq
 options		head
 abbr		if err := ...; err != nil { ...
 	if err := ${1:#:expr}; err != nil {
-		${2:panic(err)}${0}
+		${0:panic(err)}
+	}
+
+snippet		if_err_not_nil
+options		head
+abbr		if err != nil
+	if err != nil {
+		${0:panic(err)}
 	}
 
 snippet		open_file
