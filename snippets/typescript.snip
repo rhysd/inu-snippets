@@ -110,3 +110,10 @@ options	head
 	test('${1:#:description}', t => {
 		${0:#:BODY}
 	});
+
+snippet	test_ava_async
+abbr	test('', async(t) => )
+options	head
+	test('${1:#:description}', async(t) => {
+		${0:#:BODY}
+	});
