@@ -104,6 +104,10 @@ options	head
 		}
 	}
 
+snippet	debug_log_expr
+abbr	log('var', var)
+	console.log('${1:#:expr}: ', $1);
+
 snippet	test_ava
 abbr	test('', t => )
 options	head
@@ -117,3 +121,18 @@ options	head
 	test('${1:#:description}', async(t) => {
 		${0:#:BODY}
 	});
+
+snippet	test_mocha_describe
+abbr	describe('', ...)
+options	head
+	describe('${1:#:description}', function () {
+		${0:#:BODY}
+	});
+
+snippet	test_mocha_it
+abbr	it('', ...)
+options	head
+	it('${1:#:description}', function () {
+		${0:#:BODY}
+	});
+
