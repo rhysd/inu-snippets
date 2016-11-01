@@ -136,3 +136,9 @@ options	head
 		${0:#:BODY}
 	});
 
+snippet	tslint_disable_comment
+abbr	/* tslint:disable */
+options	head
+	/* tslint:disable:${1:#:space-sep-rules} */
+	${0:#:BODY}
+	/* tslint:enable:$1 */

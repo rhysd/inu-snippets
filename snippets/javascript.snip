@@ -139,3 +139,10 @@ snippet	assert_isFalse
 abbr	assert.isFalse(, '')
 options	word
 	assert.isFalse(${1:#:actual}, '${2:#:msg}');
+
+snippet	eslint_disable_comment
+abbr	/* eslint-disable */
+options	head
+	/* eslint-disable ${1:#:comma-sep-rules} */
+	${0:#:BODY}
+	/* eslint-enable $1 */
