@@ -146,3 +146,8 @@ options	head
 	/* eslint-disable ${1:#:comma-sep-rules} */
 	${0:#:BODY}
 	/* eslint-enable $1 */
+
+snippet	bind_this
+abbr	a = a.bind(this);
+options	head
+	this.${1:#:var} = this.$1.bind(this);

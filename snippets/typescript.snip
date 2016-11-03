@@ -142,3 +142,8 @@ options	head
 	/* tslint:disable:${1:#:space-sep-rules} */
 	${0:#:BODY}
 	/* tslint:enable:$1 */
+
+snippet	bind_this
+abbr	a = a.bind(this);
+options	head
+	this.${1:#:var} = this.$1.bind(this);
