@@ -99,6 +99,23 @@ options	head
 	export default class $1 extends React.Component<$1Props, ${2:{\}}> {
 		render() {
 			return (
+				${3:#:ELEMENT}
+			);
+		}
+	}
+
+snippet	react_pure_class
+abbr	React.PureComponent
+options	head
+	import * as React from 'react';
+	
+	interface ${1:#:Component}Props extends React.Props<$1> {
+		${2:#:props}
+	}
+	
+	export default class $1 extends React.PureComponent<$1Props, {}> {
+		render() {
+			return (
 				${0:#:ELEMENT}
 			);
 		}
