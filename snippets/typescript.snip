@@ -164,3 +164,12 @@ snippet	bind_this
 abbr	a = a.bind(this);
 options	head
 	this.${1:#:var} = this.$1.bind(this);
+
+snippet	redux_connect_react_component
+abbr	connect(select)(App)
+	function select(s: State): ${1:#:name}Props {
+		return s;
+	}
+	
+	const $1Container = connect(select)($1);
+	export default $1Container;
