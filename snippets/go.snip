@@ -109,3 +109,8 @@ options		head
 	defer func() {
 		${0:#:BODY}
 	}()
+
+snippet		debug_print
+options		head
+abbr	fmt.Printf
+	fmt.Printf("${1:#:expression}: %v\n", $1)
