@@ -7,14 +7,8 @@ options		head
 	}
 
 snippet		method
-abbr		func (*) ...(){}
-alias		func_method
-	func (${1:self} *${2:#:receiver_type}) ${3:#:name}(${4:#:args}) ${5:#:return_type}{
-		${0:#:BODY}
-	}
-
-snippet		method_copy
-abbr		func (*) ...(){}
+abbr		func () ...(){}
+options		head
 alias		func_method
 	func (${1:self} ${2:#:receiver_type}) ${3:#:name}(${4:#:args}) ${5:#:return_type}{
 		${0:#:BODY}
@@ -22,6 +16,7 @@ alias		func_method
 
 snippet		main
 abbr		package main ... func main...
+options		head
 alias		main_package
 	package main
 	
@@ -45,6 +40,7 @@ options		head
 
 snippet		struct
 abbr		type ... struct
+options		head
 alias		type_struct
 	type ${1:#:name} struct {
 		${0:#:fields}
@@ -52,12 +48,14 @@ alias		type_struct
 
 snippet		interface
 abbr		type ... interface
+options		head
 alias		type_interface
 	type ${1:#:name} interface {
 		${0:#:requirements}
 	}
 
 snippet		switch
+options		head
 abbr		switch {case ...: ...}
 	switch ${1:#:target}{
 	case ${2:#:case1}:
@@ -65,21 +63,14 @@ abbr		switch {case ...: ...}
 	}
 
 snippet		select
+options		head
 abbr		select {case ...: ...}
 	select {
-	case ${1:#:case1}:
+    case ${1:#:var} := <-${2:#:chan}:
 		${0}
 	}
 
-snippet		err_eq
-options		head
-abbr		x, err := ...
-	${1:#:var}, err := ${2:#:expr}
-	if err != nil {
-		${0:panic(err)}
-	}
-
-snippet		if_err_eq
+snippet		if_err_assign
 options		head
 abbr		if err := ...; err != nil { ...
 	if err := ${1:#:expr}; err != nil {

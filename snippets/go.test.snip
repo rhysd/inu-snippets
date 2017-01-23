@@ -29,3 +29,16 @@ abbr		actual := ; extected := ;
 	}
 	${0}
 
+snippet		subtest
+options		head
+abbr		t.Run(..., func(){})
+	t.Run(${1:#:description}, func (t *testing.T) {
+		${0:#:BODY}
+	})
+
+snippet		subbench
+options		head
+abbr		b.Run(..., func(){})
+	b.Run(${1:#:description}, func (b *testing.B) {
+		${0:#:BODY}
+	})
