@@ -95,7 +95,7 @@ abbr		os.Open(...)
 	${0}
 
 snippet		defer_func
-abbr	defer func(){}()
+abbr		defer func(){}()
 options		head
 	defer func() {
 		${0:#:BODY}
@@ -103,5 +103,20 @@ options		head
 
 snippet		debug_print
 options		head
-abbr	fmt.Printf
+abbr		fmt.Printf
 	fmt.Printf("${1:#:expression}: %v\n", $1)
+
+snippet		printfln
+options		head
+abbr		fmt.Printf("\n")
+	fmt.Printf("${1:#:literal}\n"${2:#:args})
+
+snippet		Printfln
+options		word
+abbr		Printf("\n")
+	Printf("${1:#:literal}\n"${2:#:args})
+
+snippet		append
+options		head
+abbr		a = append(a, )
+	${1:#:array} = append($1, ${0:#:args})
