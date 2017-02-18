@@ -8,41 +8,6 @@ abbr		augroup ... augroup END
 		autocmd ${0}
 	augroup END
 
-delete		cpo_save
-snippet		cpo_save
-options		head
-abbr		use cpo save
-	let s:save_cpo = &cpo
-	set cpo&vim
-	
-	${0}
-	
-	let &cpo = s:save_cpo
-	unlet s:save_cpo
-
-delete		NeoBundle
-snippet		NeoBundle
-alias		neobundle
-abbr		NeoBundle ''
-	NeoBundle '`getreg('+')=='' ? '<\`1\`>' : getreg('+')`'${0}
-
-delete		NeoBundleLazy
-snippet		NeoBundleLazy
-alias		neobundlelazy
-abbr		NeoBundleLazy '' {}
-	NeoBundleLazy '`getreg('+')=='' ? '<\`1\`>' : getreg('+')`', {
-			\ ${0}
-			\ }
-
-snippet		NeoBundleLazy_autoload
-alias		neobundlelazy_autoload
-abbr		NeoBundleLazy '' {'autoload' : }
-	NeoBundleLazy '`getreg('+')=='' ? '<\`1\`>' : getreg('+')`', {
-			\ 'autoload' : {
-			\     ${0}
-			\   }
-			\ }
-
 delete		autoload_function
 snippet		autoload_function
 alias		afunc
@@ -50,14 +15,6 @@ abbr		auto#load#func()
 	function! `substitute(matchstr(substitute(expand('%:p:r'), '\\', '/', 'g'), '\/autoload\/\zs.*\ze'), '/', '#', 'g')`#${1:func_name}(${2}) abort
 		${0}
 	endfunction
-
-snippet		filter
-abbr		filter(copy(), )
-	filter(copy(${1}), '${0}')
-
-snippet		map
-abbr		map(copy(), )
-	map(copy(${1}), '${0}')
 
 delete		loaded
 snippet		loaded
@@ -71,14 +28,9 @@ abbr		if exists(...) finish
 	
 	let g:loaded_`substitute(expand('%:t:r'), '\W', '_', 'g')` = 1
 
-snippet		if_oneline
-abbr		if | | endif
-options		word
-	if ${1} | ${2} | endif${0}
-
 snippet		prettyprint
 abbr		echomsg PrettyPrint(...)
-	echomsg PrettyPrint(${1})${0}
+	echomsg PrettyPrint(${0})
 
 snippet		let_autoload_global_var
 abbr		let g:foo#bar = get(...)
@@ -148,9 +100,9 @@ options		head
 		${2}
 	endtry
 
-snippet save_pos
-options head
-abbr	use pos save
+snippet		save_pos
+options		head
+abbr		use pos save
 	let pos_save = getpos('.')
 	try
 		${0}
@@ -158,9 +110,9 @@ abbr	use pos save
 		call setpos('.', pos_save)
 	endtry
 
-snippet save_register
-options head
-abbr	use register save
+snippet		save_register
+options		head
+abbr		use register save
 	let save_reg_$1 = getreg('${1}')
 	let save_regtype_$1 = getregtype('$1')
 	try
@@ -169,9 +121,9 @@ abbr	use register save
 		call setreg('$1', save_reg_$1, save_regtype_$1)
 	endtry
 
-snippet save_option
-options head
-abbr	use option save
+snippet		save_option
+options		head
+abbr		use option save
 	let $1_save = &${1}
 	let &$1 = ${2}
 	try
@@ -179,5 +131,3 @@ abbr	use option save
 	finally
 		let &$1 = $1_save
 	endtry
-
-
