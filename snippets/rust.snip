@@ -1,20 +1,20 @@
 snippet		main
-abbr		fn main() {}
 options		head
+abbr		fn main() {}
 	fn main() {
 		${0:#:body}
 	}
 
-snippet		fn
-abbr		fn () {}
+snippet		fn_void
 options		head
+abbr		fn () {}
 	fn ${1:#:name}(${2:#:args}) {
 		${0:#:body}
 	}
 
-snippet		fn_ret
-abbr		fn () {}
+snippet		fn
 options		head
+abbr		fn () {}
 	fn ${1:#:name}(${2:#:args}) -> ${3:#:ret} {
 		${0:#:body}
 	}
@@ -28,6 +28,7 @@ abbr		println!("", v)
 	println!("DEBUG: ${1:#:var}: {:?}", $1);
 
 snippet		mod
+abbr		mod {}
 options		head
 	mod ${1:#:name} {
 		${0:#:body}
@@ -45,35 +46,26 @@ abbr		match {Ok(), Err()}
 		Err(${4}) => ${5:#:body_err},
 	}
 
+snippet		match_some_none
+abbr		match {Ok(), Err()}
+	match ${1:#:expr} {
+		Some(${2}) => ${3:#:body_ok},
+		None => ${4:#:body_err},
+	}
+
 snippet		derive
 options		head
 abbr		#[derive()]
 	#[derive(${1:Debug})]${0}
 
-snippet		allow_dead_code
+snippet		cfg
+abbr		#[cfg()]
 options		head
-abbr		#![allow(dead_code)]
-	#![allow(dead_code)]${0}
+	#[cfg(${1:tests})]${0}
 
 snippet		if_oneline
 abbr		if {} else {}
 	if ${1:#:cond} { ${2} } else { ${3} }
-
-snippet		impl_method
-options		head
-abbr		struct {} impl {}
-	impl ${1:#:Name} {
-		fn ${2:#:name}(&self${3:#:params})${4:#:ret} {
-			${0:#:BODY}
-		}
-	}
-
-snippet		fn_method
-options		head
-abbr		fn (&self...) {}
-	fn ${1:#:name}(&self${2:#:params})${3:#:ret} {
-		${0:#:BODY}
-	}
 
 snippet		test_fn
 options		head
@@ -95,4 +87,12 @@ abbr		macro_rules! {}
 		(${2:#:pattern}) => {
 			${0:#:BODY}
 		}
+	}
+
+snippet		impl_where
+options		head
+abbr		impl where {}
+	impl<${1:T}> ${2:#:type}<${3:T}>
+	where ${4:#:traits} {
+		${0:#:BODY}
 	}
