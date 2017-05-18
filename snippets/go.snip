@@ -6,10 +6,9 @@ options		head
 		${0:#:BODY}
 	}
 
-snippet		method
+snippet		func_method
 abbr		func () ...(){}
 options		head
-alias		func_method
 	func (${1:self} ${2:#:receiver_type}) ${3:#:name}(${4:#:args}) ${5:#:return_type}{
 		${0:#:BODY}
 	}
@@ -24,14 +23,14 @@ alias		main_package
 		${0:#:BODY}
 	}
 
-snippet		for_range
+snippet		for
 abbr		for _, v := range ...
 options		head
 	for ${1:_},${2:v} := range ${3:#:array} {
 		${0:#:BODY}
 	}
 
-snippet		for
+snippet		for_index
 abbr		for ;; {}
 options		head
 	for ${1};${2};${3} {
@@ -70,30 +69,6 @@ abbr		select {case ...: ...}
 		${0}
 	}
 
-snippet		if_err_assign
-options		head
-abbr		if err := ...; err != nil { ...
-	if err := ${1:#:expr}; err != nil {
-		${0:panic(err)}
-	}
-
-snippet		if_err_not_nil
-options		head
-abbr		if err != nil
-	if err != nil {
-		${0:panic(err)}
-	}
-
-snippet		open_file
-options		head
-abbr		os.Open(...)
-	${1:f}, err := os.${2:Open}(${3:#:filename}, ${4:os.ModePerm})
-	if err != nil {
-		${5:panic(err)}
-	}
-	defer $1.Close()
-	${0}
-
 snippet		defer_func
 abbr		defer func(){}()
 options		head
@@ -106,17 +81,41 @@ options		head
 abbr		fmt.Printf
 	fmt.Printf("${1:#:expression}: %v\n", $1)
 
-snippet		printfln
-options		head
-abbr		fmt.Printf("\n")
-	fmt.Printf("${1:#:literal}\n"${2:#:args})
-
-snippet		Printfln
-options		word
-abbr		Printf("\n")
-	Printf("${1:#:literal}\n"${2:#:args})
-
 snippet		append
 options		head
 abbr		a = append(a, )
 	${1:#:array} = append($1, ${0:#:args})
+
+snippet		func_test
+options		head
+abbr		func TestFoo(...)
+alias		func_test
+	func Test${1:#:What}(t *testing.T) {
+		${0:#:BODY}
+	}
+
+snippet		benchmark
+options		head
+abbr		func BenchmarkFoo(...)
+alias		func_bench
+	func Benchmark${1:#:What}(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			${0:#:BODY}
+		}
+	}
+
+snippet		subtest_func
+options		head
+abbr		t.Run("", func(){})
+	t.Run("${1:#:what}", func (t *testing.T) {
+		${0:#:BODY}
+	})
+
+snippet		subbench_func
+options		head
+abbr		b.Run("", func(){})
+	b.Run("${1:#:what}", func (b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			${0:#:BODY}
+		}
+	})
