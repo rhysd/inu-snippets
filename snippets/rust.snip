@@ -96,3 +96,10 @@ abbr		impl where {}
 	where ${4:#:traits} {
 		${0:#:BODY}
 	}
+
+snippet		impl_for
+options		head
+abbr		impl for {}
+	impl<${1:T}> ${2:#:Trait} for ${3:#:Type} {
+		${0:#:BODY}
+	}
