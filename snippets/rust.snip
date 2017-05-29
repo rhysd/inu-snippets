@@ -21,9 +21,9 @@ abbr		fn () {}
 
 snippet		println
 abbr		println!("", )
-	println!("${1}")${0}
+	println!("${1}", ${2})
 
-snippet		debug_println
+snippet		println_debug
 abbr		println!("", v)
 	println!("DEBUG: ${1:#:var}: {:?}", $1);
 
@@ -32,7 +32,7 @@ abbr		mod {}
 options		head
 	mod ${1:#:name} {
 		${0:#:body}
-	} // mod ${1}
+	} // mod $1
 
 snippet		match
 	match ${1:#:expr} {
@@ -61,7 +61,7 @@ abbr		#[derive()]
 snippet		cfg
 abbr		#[cfg()]
 options		head
-	#[cfg(${1:tests})]${0}
+	#[cfg(${1:test})]${0}
 
 snippet		if_oneline
 abbr		if {} else {}
