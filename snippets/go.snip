@@ -81,11 +81,6 @@ options		head
 abbr		fmt.Printf
 	fmt.Printf("${1:#:expression}: %v\n", $1)
 
-snippet		append
-options		head
-abbr		a = append(a, )
-	${1:#:array} = append($1, ${0:#:args})
-
 snippet		func_test
 options		head
 abbr		func TestFoo(...)
@@ -137,3 +132,12 @@ abbr		testcase := ...
 			${0:#:BODY}
 		})
 	}
+
+snippet		recover_defer
+options		head
+abbr		defer func(){recover()}
+	defer func() {
+		if err := recover(); err != nil {
+			${0:#:on panic}
+		} 
+	}()
