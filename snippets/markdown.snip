@@ -14,14 +14,6 @@ snippet		twitter_user_link
 abbr		[@...](https://twitter.com/...)
 	[@${1:#:name}](https://twitter.com/$1)${0}
 
-snippet		image_link
-abbr		![]()
-	![${1}](${2})${0}
-
-snippet		image_link_paste
-abbr		![](...)
-	![${1}](`getreg('+')=='' ? '<\`2\`>' : getreg('+')`)${0}
-
 snippet		github_sha
 abbr		user/proj@sha
 	${1:#:user}/${2:#:project}@${3:#:SHA}${0}

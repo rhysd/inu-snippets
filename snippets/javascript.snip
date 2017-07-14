@@ -6,15 +6,10 @@ options word
 		${0:#:body}
 	}
 
-snippet console_log
-abbr    console.log();
-options word
-	console.log(${0:#:args});
-
 snippet console_log_stringify
 abbr    console.log(JSON.stringify());
 options word
-	console.log(JSON.stringify(${0:#:arg}));
+	console.log(JSON.stringify(${0:#:arg}, null, 2));
 
 snippet	console_dump_var
 abbr	console.log('foo', foo)
@@ -24,21 +19,7 @@ options	word
 snippet	require
 abbr	var = require();
 options head
-	var ${1:#:module} = require('$1');
-
-snippet react_component
-abbr	extends React.Component
-options	head
-	export default class ${1:#:name} extends React.Component {
-		render() {
-			return (
-				${0}
-			);
-		}
-	}
-	
-	$1.propTypes = {
-	}
+	const ${1:#:module} = require('$1');
 
 snippet	jsx
 abbr	<foo><foo/>
@@ -46,17 +27,10 @@ abbr	<foo><foo/>
 		${0}
 	</$1>
 
-snippet	for_of
-abbr	for of ...
+snippet	for
+abbr	for () {}
 options	head
-	for (let ${1:#:iter} of ${2:#:iterable}) {
-		${0:#:BODY}
-	}
-
-snippet	for_in
-abbr	for in ...
-options	head
-	for (let ${1:#:key} in ${2:#:iterable}) {
+	for (const ${1}) {
 		${0:#:BODY}
 	}
 
@@ -64,17 +38,11 @@ snippet	switch
 abbr	switch(...){}
 options	head
 	switch (${1:#:expr}) {
-		${0:#:BODY}
+		case ${2:#:first}:
+			${0:#:BODY}
+			break;
 		default:
 			break;
-	}
-
-snippet	case
-abbr	case ...: {...}
-options	head
-	case ${1:#:value}: {
-		${0:#:BODY}
-		break;
 	}
 
 snippet	new_Promise
@@ -85,60 +53,26 @@ abbr	new Promise(...)
 	});
 
 
-snippet	describe
+snippet	describe_mocha
 abbr	describe('', function())
 options	head
 	describe('${1:#:feature}', function() {
 		${0:#:body}
 	});
 
-snippet	it
+snippet	it_mocha
 abbr	it('', function())
 options	head
 	it('${1:#:spec}', function() {
 		${0:#:body}
 	});
 
-snippet	it_done
+snippet	it_done_mocha
 abbr	it('', function())
 options	head
 	it('${1:#:spec}', function(done) {
 		${0:#:body}
 	});
-
-snippet	assert_strictEqual
-abbr	assert.strictEqual()
-alias	strictEqual
-options	word
-	assert.strictEqual(${1:#:actual}, ${2:#:expected});
-
-snippet	assert_notStrictEqual
-abbr	assert.notStrictEqual()
-alias	notStrictEqual
-options	word
-	assert.notStrictEqual(${1:#:actual}, ${2:#:expected});
-
-snippet	assert_deepEqual
-abbr	assert.deepEqual()
-alias	deepEqual
-options	word
-	assert.deepEqual(${1:#:actual}, ${2:#:expected});
-
-snippet	assert_notDeepEqual
-abbr	assert.notDeepEqual()
-alias	notDeepEqual
-options	word
-	assert.notDeepEqual(${1:#:actual}, ${2:#:expected});
-
-snippet	assert_isTrue
-abbr	assert.isTrue(, '')
-options	word
-	assert.isTrue(${1:#:actual}, '${2:#:msg}');
-
-snippet	assert_isFalse
-abbr	assert.isFalse(, '')
-options	word
-	assert.isFalse(${1:#:actual}, '${2:#:msg}');
 
 snippet	eslint_disable_comment
 abbr	/* eslint-disable */

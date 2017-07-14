@@ -1,28 +1,12 @@
-snippet import_all
-abbr    import * as from;
-options head
-	import * as ${1:#:module} from '$1';
-
 snippet import
 abbr    import ... from ''
 options head
 	import ${1:#:modules} from '${2:#:module}';
 
-snippet constructor
-abbr    constructor(){}
-options head
-	constructor(${1:#:params}) {
-		${2:#:body}
-	}
-
-snippet log_stringify
+snippet console_log_stringify
 abbr    console.log(stringify())
 options word
 	console.log(JSON.stringify(${1}, null, 2));
-
-snippet reference
-abbr    /// <reference .../>
-	/// <reference path="${1}" />
 
 snippet function
 abbr    function() {}
@@ -41,25 +25,12 @@ snippet	switch
 abbr	switch(...){}
 options	head
 	switch (${1:#:expr}) {
-		${0:#:BODY}
+		case ${2:#:first}:
+			${0:#:BODY}
+			break;
 		default:
 			break;
 	}
-
-snippet	case
-abbr	case ...: {...}
-options	head
-	case ${1:#:value}: {
-		${0:#:BODY}
-		break;
-	}
-
-snippet	doc_comment
-abbr	/* * */
-options	head
-	/**
-	 *  ${0:#:doc}
-	 */
 
 snippet	new_Promise
 alias	Promise
@@ -67,13 +38,6 @@ abbr	new Promise(...)
 	new Promise<${1:#:T}>((resolve, reject) => {
 		${0:#:BODY}
 	});
-
-snippet	namespace
-abbr	namespace {}
-options head
-	namespace ${1:#:name} {
-		${0:#:BODY}
-	} // $1
 
 snippet	react_stateless_component
 abbr	const C = props => ()
