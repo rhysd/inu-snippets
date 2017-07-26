@@ -21,28 +21,6 @@ options		head
 abbr		#include ".hpp"
 	#include "${1}.hpp"${0}
 
-delete		inc_h
-snippet		inc_h
-alias		include_h,#inc_h,#include_h
-options		head
-abbr		#include <.h>
-	#include <${1}.h>${0}
-
-delete		inc_h2
-snippet		inc_h2
-alias		include_h2,#inc_h2,#include_h2
-options		head
-abbr		#include ".h"
-	#include "${1}.h"${0}
-
-snippet		cout
-abbr		cout << ...;
-	std::cout << ${1};${0}
-
-snippet		cerr
-abbr		cerr << ...;
-	std::cerr << ${1};${0}
-
 snippet		cout_endl
 abbr		cout << ... << endl;
 	std::cout << ${1} << std::endl;
@@ -55,7 +33,7 @@ abbr		cerr << ... << endl;
 
 snippet		static_assert_msg
 abbr		static_assert(,"")
-	static_assert( ${1}, "${2}" );${0}
+	static_assert(${1}, "${2}");${0}
 
 snippet		declval
 abbr		declval()
@@ -133,13 +111,6 @@ abbr		extern "C" {}
 	
 	} // extern "C"
 
-snippet		def_undef
-alias		#def_undef
-abbr		#define ... #undef
-	#define ${1:#:name}${2:#:args} ${3:#:BODY}
-	${0}
-	#undef $1
-
 snippet		enum_scoped
 abbr		enum struct {}
 	enum struct ${1:#:name} {
@@ -153,18 +124,6 @@ abbr		R"()"
 snippet		noexcept_noexcept
 abbr		noexcept(noexcept())
 	noexcept(noexcept(${0:#:expr}))
-
-snippet		main_iostream
-alias		int_main_iostream
-options		head
-abbr		#include <iostream> main(){}
-	#include <iostream>
-	${1:#include <vector>}
-	
-	int main()
-	{
-		${0}
-	}
 
 snippet		forward
 options		word
