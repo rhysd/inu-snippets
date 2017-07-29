@@ -137,20 +137,6 @@ abbr		auto maybe = ...
 	assert(maybe_$2);
 	auto $1& $2 = *maybe_$2;
 
-snippet		default_copyable
-options		head
-abbr		T(T const&) = default
-	${1:#:name}($1 const&) = default;
-	
-	$1 &($1 const&) = default;${0}
-
-snippet		default_movable
-options		head
-abbr		T(T const&) = default
-	${1:#:name}($1 &&) = default;
-	
-	$1 &($1 &&) = default;${0}
-
 snippet		debug_print
 options		head
 abbr		<< __func__ << ...
