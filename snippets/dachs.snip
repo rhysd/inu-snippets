@@ -5,13 +5,6 @@ abbr		func() end
 		${0}
 	end
 
-snippet		proc
-options		head
-abbr		proc() end
-	proc ${1:#:name}${2:#:param}
-		${0}
-	end
-
 snippet		case
 options		head
 abbr		case ... end
@@ -35,17 +28,7 @@ abbr		if ... end
 		${0:#:body}
 	end
 
-snippet		else
-abbr		else ...
-	else
-		${0:#:body}
-
-snippet		elseif
-abbr		elseif ...
-	elseif ${1:#:cond}
-		${0:#:body}
-
-snippet		if_expr
+snippet		if_oneline
 abbr		if then else
 	if ${1:#:cond} then ${2:#:expr} else ${3:#:expr}
 
