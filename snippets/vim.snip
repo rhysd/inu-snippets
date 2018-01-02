@@ -136,3 +136,9 @@ snippet		execute_call
 abbr		execute()
 	execute('${0:#:cmd}', '')
 
+snippet		func_method
+options		head
+	function! s:_${1:#:METHOD}(${2:#:PARAMS}) dict abort
+		${0:#:BODY}
+	endfunction
+	let s:${3:#:RECEIVER}.$1 = function('s:_$1')
