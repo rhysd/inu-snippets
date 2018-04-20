@@ -1,13 +1,3 @@
-snippet		from_import
-abbr		from ... import ...
-options		head
-	from ${1} import ${2}
-
-snippet		from_import_as
-abbr		from ... import ... as ...
-options		head
-	from ${1} import ${2} as ${3}
-
 snippet		class
 abbr		class Class(...): "..."
 options		head
@@ -31,31 +21,6 @@ options		head
 		"""${3:#:method documentation}"""
 		${0:TARGET}
 
-snippet		list_comprehension
-abbr		[x for x in {list}]
-alias		map
-	[${1:#:expr} for ${2:#:args} in ${3:#:list}]
-
-snippet		list_comprehension_if
-abbr		[x for x in {list}]
-alias		map
-	[${1:#:expr} for ${2:#:args} in ${3:#:list} if ${3:#:condition}]
-
-snippet		if_oneline
-abbr		... if ... else ...
-	${1:#:value_true} if ${2:#:condition} else ${3:#:value_false}
-
-snippet		with
-abbr		with ... as ...:
-	with ${1} as ${2}:
-		${0}
-
-snippet		for
-abbr		for ... in ...: ...
-options		head
-	for ${1:#:value} in ${2:#:list}:
-		${0:TARGET}
-
 snippet		ifmain
 abbr		if __name__ == '__main__': ...
 alias		main
@@ -63,22 +28,7 @@ options		head
 	if __name__ == '__main__':
 		${0:TARGET}
 
-snippet		tryexcept
-abbr		try: ... except ...: ...
-options		head
-	try:
-		${1:TARGET}
-	except ${2:#:ExceptionClass}:
-		${3}
-
-snippet		tryfinally
-abbr		try: ... finally: ...
-options		head
-	try:
-		${1:TARGET}
-	finally:
-		${2}
-
-snippet		filter
-abbr		[x for x in {list} if {condition}]
-	[$1 for ${1:x} in ${2:#:list} if ${3:#:condition}]
+snippet		pylint_disable
+abbr		pylint disable=rule
+alias		disable_pylint
+	# pylint: disable=${1:#:rule}
