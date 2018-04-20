@@ -132,8 +132,7 @@ abbr	connect(select)(App)
 	const $1Container = connect(select)($1);
 	export default $1Container;
 
-snippet	ignore_comment
-abbr	// @ts-ignore
+snippet	ts_ignore
+abbr	@ts-ignore:
 options	head
 	// @ts-ignore: ${1:#:reason}
-	${0}
