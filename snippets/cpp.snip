@@ -31,10 +31,6 @@ abbr		cerr << ... << endl;
 	std::cerr << ${1} << std::endl;
 	${0}
 
-snippet		static_assert_msg
-abbr		static_assert(,"")
-	static_assert(${1}, "${2}");${0}
-
 snippet		declval
 abbr		declval()
 	declval<${1}>()${0}
@@ -92,18 +88,6 @@ options		word
 	std::begin(${1:#:container}), std::end($1)${0}
 
 snippet		extern_C
-abbr		extern "C" {}
-	#ifdef __cplusplus
-	extern "C" {
-	#endif
-	
-	${0}
-	
-	#ifdef __cplusplus
-	} // extern "C"
-	#endif
-
-snippet		extern_C_simple
 abbr		extern "C" {}
 	extern "C" {
 	

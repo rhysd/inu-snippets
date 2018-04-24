@@ -15,20 +15,3 @@ options	head
 			title ${1:#:title}
 	body
 		${2:#:BODY}
-
-snippet	polymer_elem
-abbr	polymer elem def
-options	head
-	dom-module id="${1:#:name}"
-		style:
-			:host {
-			}
-		template
-			${0:#:BODY}
-		javascript:
-			Polymer({
-				is: '$1',
-				properties: {
-				}
-			});
-

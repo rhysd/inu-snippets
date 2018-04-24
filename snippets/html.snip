@@ -18,24 +18,14 @@ options	head
 		</body>
 	</html>
 
-snippet	polymer_component
-abbr	<custom-element>
+snippet	element_oneline
+abbr	<></>
 options	head
-	<dom-module id="${1:#:name}">
-		<template>
-			<style>
-			</style>
-		</template>
-	</dom-module>
-	
-	<script>
-	(function() {
-		Polymer({
-			is: '$1',
-			
-			properties: {
-				${2:#:name}: ${0:#:prop_def}
-			}
-		});
-	}());
-	</script>
+	<${1:div}>${0:#:BODY}</$1>
+
+snippet	element
+abbr	<></>
+options	head
+	<${1:div}>
+		${0:#:BODY}
+	</$1>
