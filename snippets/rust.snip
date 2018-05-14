@@ -5,6 +5,13 @@ abbr		fn main() {}
 		${0:#:body}
 	}
 
+snippet		main_result
+options		head
+abbr		fn main() -> Result
+	fn main() -> Result<(), ${1:#:ERROR}> {
+		${0:#:body}
+	}
+
 snippet		fn_void
 options		head
 abbr		fn () {}
