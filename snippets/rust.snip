@@ -110,3 +110,11 @@ abbr		impl for {}
 	impl<${1:T}> ${2:#:Trait} for ${3:#:Type} {
 		${0:#:BODY}
 	}
+
+snippet		struct_derive
+options		head
+abbr		#[derive()] struct {}
+	#[derive(${1:Debug})]
+	struct ${0:#:NAME} {
+		${0:#:BODY}
+	}
