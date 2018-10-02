@@ -118,3 +118,11 @@ abbr		#[derive()] struct {}
 	struct ${0:#:NAME} {
 		${0:#:BODY}
 	}
+
+snippet		enum_derive
+options		head
+abbr		#[derive()] enum {}
+	#[derive(${1:Debug})]
+	enum ${0:#:NAME} {
+		${0:#:BODY}
+	}
