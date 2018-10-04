@@ -28,11 +28,11 @@ abbr		fn () {}
 
 snippet		println
 abbr		println!("", )
-	println!("${1}", ${2})
+	println!("${1}", ${2});
 
-snippet		println_debug
-abbr		println!("", v)
-	println!("DEBUG: ${1:#:var}: {:?}", $1);
+snippet		println_value
+abbr        println!("{:?}")
+    println!("{:?}", ${1:#:VALUE});
 
 snippet		mod
 abbr		mod {}
