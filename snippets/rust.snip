@@ -12,17 +12,10 @@ abbr		fn main() -> Result
 		${0:#:body}
 	}
 
-snippet		fn_void
+snippet		fn_define
 options		head
 abbr		fn () {}
-	fn ${1:#:name}(${2:#:args}) {
-		${0:#:body}
-	}
-
-snippet		fn
-options		head
-abbr		fn () {}
-	fn ${1:#:name}(${2:#:args}) -> ${3:#:ret} {
+	fn ${1:#:name}(${2:#:args}) ${3:#:ret}{
 		${0:#:body}
 	}
 
