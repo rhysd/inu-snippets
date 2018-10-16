@@ -119,3 +119,16 @@ abbr		#[derive()] enum {}
 	enum ${0:#:NAME} {
 		${0:#:BODY}
 	}
+
+snippet		mod_tests
+options		head
+abbr		mode tests {}
+	#[cfg(test)]
+	mod tests {
+		use super::*
+	
+		#[test]
+		fn ${1:#:testcase}() {
+			${0:#:BODY}
+		}
+	} // mod tests
