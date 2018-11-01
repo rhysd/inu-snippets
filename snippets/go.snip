@@ -101,8 +101,8 @@ alias		func_bench
 
 snippet		subtest_func
 options		head
-abbr		t.Run("", func(){})
-	t.Run("${1:#:what}", func(t *testing.T) {
+abbr		t.Run(, func(){})
+	t.Run(${1:#:what}, func(t *testing.T) {
 		${0:#:BODY}
 	})
 
