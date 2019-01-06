@@ -41,26 +41,12 @@ snippet		match
 		${2:#:pattern} => ${0:#:body},
 	}
 
-snippet		match_ok_err
-abbr		match {Ok(), Err()}
-	match ${1:#:expr} {
-		Ok(${2}) => ${3:#:body_ok},
-		Err(${4}) => ${5:#:body_err},
-	}
-
-snippet		match_some_none
-abbr		match {Ok(), Err()}
-	match ${1:#:expr} {
-		Some(${2}) => ${3:#:body_ok},
-		None => ${4:#:body_err},
-	}
-
-snippet		derive
+snippet		derive_attr
 options		head
 abbr		#[derive()]
 	#[derive(${1:Debug})]${0}
 
-snippet		cfg
+snippet		cfg_attr
 abbr		#[cfg()]
 options		head
 	#[cfg(${1:test})]${0}
@@ -122,16 +108,3 @@ abbr		#[derive()] enum {}
 	enum ${0:#:NAME} {
 		${0:#:BODY}
 	}
-
-snippet		mod_tests
-options		head
-abbr		mode tests {}
-	#[cfg(test)]
-	mod tests {
-		use super::*
-	
-		#[test]
-		fn ${1:#:testcase}() {
-			${0:#:BODY}
-		}
-	} // mod tests
