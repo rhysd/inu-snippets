@@ -36,6 +36,19 @@ options		head
 		${0:#:body}
 	} // mod $1
 
+snippet		mod_test
+abbr		mod test {}
+options		head
+	#[cfg(test)]
+	mod tests {
+		use super::*;
+	
+		#[test]
+		fn ${1:#:name} {
+			${0:#:BODY}
+		}
+	} // mod tests
+
 snippet		match
 	match ${1:#:expr} {
 		${2:#:pattern} => ${0:#:body},
