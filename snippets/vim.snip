@@ -138,7 +138,7 @@ abbr		execute()
 
 snippet		func_method
 options		head
-	function! s:_${1:#:METHOD}(${2:#:PARAMS}) dict abort
+	function! s:${1:#:RECEIVER}__${2:#:METHOD}(${3:#:PARAMS}) dict abort
 		${0:#:BODY}
 	endfunction
-	let s:${3:#:RECEIVER}.$1 = function('s:_$1')
+	let s:$1.$2 = funcref('s:$1__$2')
