@@ -14,20 +14,17 @@ abbr		fn main() -> Result
 		${0:#:body}
 	}
 
-snippet		fn_define
+snippet		main_io_result
 options		head
-abbr		fn () {}
-	fn ${1:#:name}(${2:#:args}) ${3:#:ret}{
+alias		fn_main_io_result
+abbr		fn main() {}
+	fn main() -> io::Result<()> {
 		${0:#:body}
 	}
 
 snippet		println
 abbr		println!("", )
 	println!("${1}", ${2});
-
-snippet		println_value
-abbr        println!("{:?}")
-    println!("{:?}", ${1:#:VALUE});
 
 snippet		mod
 abbr		mod {}
@@ -91,26 +88,11 @@ abbr		macro_rules! {}
 		}
 	}
 
-snippet		impl_where
-options		head
-abbr		impl where {}
-	impl<${1:T}> ${2:#:type}<${3:T}>
-	where ${4:#:traits} {
-		${0:#:BODY}
-	}
-
-snippet		impl_for
-options		head
-abbr		impl for {}
-	impl<${1:T}> ${2:#:Trait} for ${3:#:Type} {
-		${0:#:BODY}
-	}
-
 snippet		struct_derive
 options		head
 abbr		#[derive()] struct {}
 	#[derive(${1:Debug})]
-	struct ${0:#:NAME} {
+	struct ${2:#:NAME} {
 		${0:#:BODY}
 	}
 
@@ -118,6 +100,6 @@ snippet		enum_derive
 options		head
 abbr		#[derive()] enum {}
 	#[derive(${1:Debug})]
-	enum ${0:#:NAME} {
+	enum ${2:#:NAME} {
 		${0:#:BODY}
 	}
