@@ -9,22 +9,10 @@ abbr		fn main() {}
 snippet		main_result
 options		head
 alias		fn_main_result
-abbr		fn main() -> Result
-	fn main() -> Result<(), ${1:#:ERROR}> {
-		${0:#:body}
-	}
-
-snippet		main_io_result
-options		head
-alias		fn_main_io_result
 abbr		fn main() {}
 	fn main() -> io::Result<()> {
 		${0:#:body}
 	}
-
-snippet		println
-abbr		println!("", )
-	println!("${1}", ${2});
 
 snippet		mod
 abbr		mod {}
@@ -45,11 +33,6 @@ options		head
 			${0:#:BODY}
 		}
 	} // mod tests
-
-snippet		match
-	match ${1:#:expr} {
-		${2:#:pattern} => ${0:#:body},
-	}
 
 snippet		derive_attr
 options		head
