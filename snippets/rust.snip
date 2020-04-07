@@ -86,3 +86,10 @@ abbr		#[derive()] enum {}
 	enum ${2:#:NAME} {
 		${0:#:BODY}
 	}
+
+snippet		getter
+options		head
+abbr		fn attr(&self)
+	fn ${1:#:attr}(&self) -> ${0:#:type} {
+		self.$1
+	}
