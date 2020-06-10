@@ -6,14 +6,6 @@ abbr		fn main() {}
 		${0:#:body}
 	}
 
-snippet		main_result
-options		head
-alias		fn_main_result
-abbr		fn main() {}
-	fn main() -> io::Result<()> {
-		${0:#:body}
-	}
-
 snippet		mod
 abbr		mod {}
 options		head
@@ -34,7 +26,7 @@ options		head
 		}
 	} // mod tests
 
-snippet		derive_attr
+snippet		derive
 options		head
 abbr		#[derive()]
 	#[derive(${1:Debug})]${0}
@@ -46,7 +38,7 @@ options		head
 
 snippet		if_oneline
 abbr		if {} else {}
-	if ${1:#:cond} { ${2} } else { ${3} }
+	if ${1:#:cond} { ${2} } else { ${3} }${0}
 
 snippet		test_fn
 options		head
@@ -71,25 +63,23 @@ abbr		macro_rules! {}
 		}
 	}
 
-snippet		struct_derive
+snippet		struct
 options		head
 abbr		#[derive()] struct {}
-	#[derive(${1:Debug})]
-	struct ${2:#:NAME} {
+	struct ${1:#:NAME} {
 		${0:#:BODY}
 	}
 
-snippet		enum_derive
+snippet		enum
 options		head
 abbr		#[derive()] enum {}
-	#[derive(${1:Debug})]
-	enum ${2:#:NAME} {
+	enum ${1:#:NAME} {
 		${0:#:BODY}
 	}
 
 snippet		getter
 options		head
 abbr		fn attr(&self)
-	fn ${1:#:attr}(&self) -> ${0:#:type} {
+	pub fn ${1:#:attr}(&self) -> ${0:#:type} {
 		self.$1
 	}
