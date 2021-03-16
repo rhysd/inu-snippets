@@ -14,3 +14,10 @@ snippet		print
 options		head
 abbr		std.debug.print
     std.debug.print("$1", .{$2})$3
+
+snippet		for
+options		head
+abbr		for () || {}
+    for (${1:#var}) |${2:i}| {
+        ${3:#body}
+    }
