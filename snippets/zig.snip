@@ -8,5 +8,9 @@ abbr		fn main() {}
 snippet		import
 options		head
 abbr		@import()
-    const ${1:std} = @import("${2:std}");$0
+    const ${1:std} = @import("${2:std}");$3
 
+snippet		print
+options		head
+abbr		std.debug.print
+    std.debug.print("$1", .{$2})$3
