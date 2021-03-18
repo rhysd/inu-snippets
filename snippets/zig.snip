@@ -8,16 +8,23 @@ abbr		fn main() {}
 snippet		import
 options		head
 abbr		@import()
-    const ${1:std} = @import("${2:std}");$3
+	const ${1:std} = @import("${2:std}");$3
 
 snippet		print
 options		head
 abbr		std.debug.print
-    std.debug.print("$1", .{$2})$3
+	std.debug.print("$1", .{$2})$3
 
 snippet		for
 options		head
 abbr		for () || {}
-    for (${1:#var}) |${2:i}| {
-        ${3:#body}
-    }
+	for (${1:#var}) |${2:i}| {
+		${3:#body}
+	}
+
+snippet		error
+options		head
+abbr		const = error{}
+	const ${1:#ErrorType} = error{
+		${2:#Variant},
+	};
