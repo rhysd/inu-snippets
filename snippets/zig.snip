@@ -1,6 +1,8 @@
 snippet		main
 options		head
 abbr		fn main() {}
+	const std = @import("std");
+	
 	pub fn main() void {
 		${0:#:body}
 	}
